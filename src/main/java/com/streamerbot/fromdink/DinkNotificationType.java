@@ -31,7 +31,12 @@ public enum DinkNotificationType {
     TRADE("TRADE"),
     CHAT("CHAT"),
     XP_MILESTONE("XP_MILESTONE"),
-    EXTERNAL_PLUGIN("EXTERNAL_PLUGIN");
+    EXTERNAL_PLUGIN("EXTERNAL_PLUGIN"),
+
+    //acts as fallback
+    UNKNOWN("UNKNOWN");
+
+
 
     private final String type;
 
@@ -46,8 +51,8 @@ public enum DinkNotificationType {
                             e -> e
                     ));
 
-    public static DinkNotificationType fromCode(String code) {
-        if (code == null) return null;
-        return BY_TYPE.get(code);
+    public static DinkNotificationType fromName(String name) {
+        if (name == null) return null;
+        return BY_TYPE.getOrDefault(name, UNKNOWN);
     }
 }

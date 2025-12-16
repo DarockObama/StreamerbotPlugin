@@ -8,14 +8,10 @@ public abstract class DinkNotificationData {
     protected String playerName;
     protected String accountType;
     protected String plainText;
-
     protected DinkNotificationData() {
-
     }
 
     protected DinkNotificationData(String type) {
         this.type = type;
     }
 }
-
-
