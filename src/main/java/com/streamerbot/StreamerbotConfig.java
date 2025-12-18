@@ -493,4 +493,29 @@ public interface StreamerbotConfig extends Config {
     default String externalRequestActionName() {
         return "";
     }
+
+    @ConfigItem(
+            keyName = "metaNotifierEnabled",
+            name = "Enable meta notifications",
+            description = "Trigger an action in Streamerbot when Dink fires login, logout and ToA purple notification <br/>" +
+                    "Note: To use this notifier, Dink's 'Custom Metadata Handler' setting in the 'Advanced' section must contain some URL",
+            position = 41,
+            section = dinkNotificationSection
+    )
+
+    default boolean metaNotifierEnabled() {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = "metaNotifierActionName",
+            name = "Meta notifier action name",
+            description = "The exact name of the action to trigger in Streamerbot upon a Dink notification",
+            position = 42,
+            section = dinkNotificationSection
+    )
+
+    default String metaNotifierActionName() {
+        return "";
+    }
 }

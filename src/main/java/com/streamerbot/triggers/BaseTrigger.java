@@ -29,7 +29,7 @@ public abstract class BaseTrigger {
     @Inject
     private TriggerHandler triggerHandler;
 
-    protected void sendAction(String json) {
+    protected void sendRequest(String json) {
         triggerHandler.sendJson(json);
     }
 }
