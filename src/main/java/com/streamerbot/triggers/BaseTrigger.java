@@ -1,5 +1,6 @@
 package com.streamerbot.triggers;
 
+
 import com.google.gson.Gson;
 import com.streamerbot.StreamerbotConfig;
 import com.streamerbot.messaging.TriggerHandler;
