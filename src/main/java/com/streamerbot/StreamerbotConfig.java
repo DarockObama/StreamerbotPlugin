@@ -5,7 +5,7 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 
-@ConfigGroup("com/streamerbot")
+@ConfigGroup("StreamerbotPlugin")
 public interface StreamerbotConfig extends Config {
     @ConfigItem(
             keyName = "streamerbotAddress",

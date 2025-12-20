@@ -1,4 +1,4 @@
-package com.streamerbot.fromdink;
+package com.streamerbot.dinkdata;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -6,8 +6,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DinkCollectionNotificationData extends DinkNotificationData {
-    private String itemName;
-    private int itemId = 0;
+    String itemName = "N/A";
+    int itemId = 0;
     long price = 0;
     int completedEntries = 0;
     int totalEntries = 0;

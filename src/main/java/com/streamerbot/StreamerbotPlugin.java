@@ -14,7 +14,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Streamerbot",
+        name = "StreamerbotPlugin",
         description = "Lets in-game events trigger Streamerbot actions. <br/>"
                 + "Requires user to run the Streamerbot application",
         tags = {"streamer", "events", "trigger", "OBS", "Streamerbot", "Twitch"}

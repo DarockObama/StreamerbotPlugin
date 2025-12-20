@@ -1,4 +1,4 @@
-package com.streamerbot.fromdink;
+package com.streamerbot.dinkdata;
 
 import lombok.Getter;
 import java.util.Map;
@@ -6,8 +6,8 @@ import java.util.Map;
 @Getter
 public enum DinkNotificationType {
     CLUE("CLUE"),
-    COLLECTION("COLLECTION"),
-    DEATH("DEATH"),
+    COLLECTION("COLLECTION", DinkCollectionNotificationData.class),
+    DEATH("DEATH", DinkDeathNotificationData.class),
     LEVEL("LEVEL"),
     LOOT("LOOT"),
     PET("PET"),
@@ -36,12 +36,19 @@ public enum DinkNotificationType {
     //acts as fallback
     UNKNOWN("UNKNOWN");
 
-
-
     private final String type;
+    private final Class<? extends DinkNotificationData> dataClass;
+    private final String enabledKey;
+    private final String actionKey;
 
     DinkNotificationType(String type) {
         this.type = type;
+        this.dataClass = DinkNotificationData.class;
+    }
+
+    DinkNotificationType(String type, Class<? extends DinkNotificationData> dataClass) {
+        this.type = type;
+        this.dataClass = dataClass;
     }
 
     private static final Map<String, DinkNotificationType> BY_TYPE =

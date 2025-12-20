@@ -1,22 +1,23 @@
 package com.streamerbot.messaging;
-
+import com.streamerbot.dinkdata.DinkNotificationData;
 import lombok.Getter;
+
 
 @Getter
 public class DoActionRequest {
-    protected final Action action;
-    // private final Map<String, Object> args;
+    private final Action action;
+    private final DinkNotificationData args;
 
-    public DoActionRequest(Action action /*, Map<String, Object> args */) {
+    public DoActionRequest(Action action, DinkNotificationData args) {
         this.action = action;
-        //this.args = (args != null) ? Collections.unmodifiableMap(args) : Collections.emptyMap();
+        this.args = args;
     }
 
-    public DoActionRequest(String name/*,  Map<String, Object> args*/) {
-        this(new Action(name) /*, args*/);
+    public DoActionRequest(String name, DinkNotificationData args) {
+        this(new Action(name), args);
     }
 
-    @Getter
+@Getter
     public static class Action {
         private final String name;
 

@@ -7,6 +7,7 @@ import com.streamerbot.util.HttpUrlAdapter;
 import lombok.extern.slf4j.Slf4j;
 import javax.inject.Inject;
 import net.runelite.api.Client;
+import net.runelite.client.config.ConfigManager;
 import okhttp3.HttpUrl;
 
 @Slf4j
@@ -21,6 +22,9 @@ public abstract class BaseTrigger {
     }
 
     @Inject
+    protected ConfigManager configManager;
+
+    @Inject
     protected StreamerbotConfig config;
 
     @Inject
@@ -28,6 +32,8 @@ public abstract class BaseTrigger {
 
     @Inject
     private TriggerHandler triggerHandler;
+
+    protected static final String CONFIG_GROUP = "StreamerbotPlugin";
 
     protected void sendRequest(String json) {
         triggerHandler.sendJson(json);
