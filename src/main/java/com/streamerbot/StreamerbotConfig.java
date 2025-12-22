@@ -112,7 +112,7 @@ public interface StreamerbotConfig extends Config {
 
     @ConfigItem(
             keyName = ConfigKeys.LOOT_ENABLED,
-            name = "Enable level",
+            name = "Enable loot",
             description = "Trigger an action in Streamerbot when Dink fires a loot notification",
             position = 9,
             section = dinkNotificationSection

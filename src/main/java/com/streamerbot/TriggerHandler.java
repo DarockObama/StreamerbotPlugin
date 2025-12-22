@@ -1,4 +1,5 @@
 package com.streamerbot;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import okhttp3.*;
@@ -6,14 +7,13 @@ import okhttp3.*;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+@Slf4j
 @Singleton
 public class TriggerHandler {
     @Inject
     StreamerbotConfig config;
 
     private final  OkHttpClient okHttpClient = new OkHttpClient();
-
-    private static final Logger log = LoggerFactory.getLogger(TriggerHandler.class);
 
     private String getAddress() {
         return "http://" + config.streamerbotAddress() + ":" + config.streamerbotPort();
