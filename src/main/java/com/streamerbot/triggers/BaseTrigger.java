@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.streamerbot.StreamerbotConfig;
 import com.streamerbot.messaging.TriggerHandler;
 import com.streamerbot.util.HttpUrlAdapter;
+import com.streamerbot.util.StringToIntAdapter;
 import lombok.extern.slf4j.Slf4j;
 import javax.inject.Inject;
 import net.runelite.api.Client;
@@ -19,6 +20,8 @@ public abstract class BaseTrigger {
     void init(Gson gson) {
         this.gson = gson.newBuilder()
                 .registerTypeAdapter(HttpUrl.class, new HttpUrlAdapter())
+                .registerTypeAdapter(Integer.class, new StringToIntAdapter())
+                .registerTypeAdapter(int.class, new StringToIntAdapter())
                 .create();
     }
 

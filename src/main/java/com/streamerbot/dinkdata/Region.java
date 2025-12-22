@@ -2,7 +2,7 @@ package com.streamerbot.dinkdata;
 
 import lombok.Data;
 
-@Data
+//@Data
 public class Region {
     int regionId;
     int plane;

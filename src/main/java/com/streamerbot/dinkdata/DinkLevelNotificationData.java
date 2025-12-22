@@ -4,15 +4,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.Map;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+//@EqualsAndHashCode(callSuper = false)
+//@Data
 public class DinkLevelNotificationData extends DinkNotificationData {
     Map<String, Integer> levelledSkills;
     Map<String, Integer> allSkills;
     CombatLevel combatLevel;
 
     public DinkLevelNotificationData() {
-        super("LEVEL");
+        super(DinkNotificationType.LEVEL);
     }
 
     @Data

@@ -3,8 +3,8 @@ package com.streamerbot.dinkdata;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+//@EqualsAndHashCode(callSuper = false)
+//@Data
 public class DinkCollectionNotificationData extends DinkNotificationData {
     String itemName = "N/A";
     int itemId = 0;
@@ -22,6 +22,6 @@ public class DinkCollectionNotificationData extends DinkNotificationData {
     Double dropRate = 0.0;
 
     public DinkCollectionNotificationData() {
-        super("COLLECTION");
+        super(DinkNotificationType.COLLECTION);
     }
 }

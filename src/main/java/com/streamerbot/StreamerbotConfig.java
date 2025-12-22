@@ -39,7 +39,7 @@ public interface StreamerbotConfig extends Config {
     String dinkNotificationSection = "Dink notifications";
 
     @ConfigItem(
-            keyName = "collectionLogEnabled",
+            keyName = ConfigKeys.COLLECTION_LOG_ENABLED,
             name = "Enable collection log",
             description = "Trigger an action in Streamerbot when Dink fires a collection log notification",
             position = 3,
@@ -51,7 +51,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "collectionLogActionName",
+            keyName = ConfigKeys.COLLECTION_LOG_ACTION_NAME,
             name = "Collection log action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink collection log notification",
             position= 4,
@@ -63,7 +63,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "petsEnabled",
+            keyName = ConfigKeys.PETS_ENABLED,
             name = "Enable pets",
             description = "Trigger an action in Streamerbot when Dink fires a pet notification",
             position = 5,
@@ -75,7 +75,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "petActionName",
+            keyName = ConfigKeys.PET_ACTION_NAME,
             name = "Pet action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink pet notification",
             position = 6,
@@ -87,7 +87,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "levelEnabled",
+            keyName = ConfigKeys.LEVEL_ENABLED,
             name = "Enable level",
             description = "Trigger an action in Streamerbot when Dink fires a level notification",
             position = 7,
@@ -99,7 +99,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "levelActionName",
+            keyName = ConfigKeys.LEVEL_ACTION_NAME,
             name = "Level action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink level notification",
             position = 8,
@@ -111,7 +111,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "lootEnabled",
+            keyName = ConfigKeys.LOOT_ENABLED,
             name = "Enable level",
             description = "Trigger an action in Streamerbot when Dink fires a loot notification",
             position = 9,
@@ -123,7 +123,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "lootActionName",
+            keyName = ConfigKeys.LOOT_ACTION_NAME,
             name = "Loot action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink loot notification",
             position = 10,
@@ -135,7 +135,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "deathEnabled",
+            keyName = ConfigKeys.DEATH_ENABLED,
             name = "Enable death",
             description = "Trigger an action in Streamerbot when Dink fires a death notification",
             position = 11,
@@ -147,7 +147,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "deathActionName",
+            keyName = ConfigKeys.DEATH_ACTION_NAME,
             name = "Death action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink death notification",
             position = 12,
@@ -159,7 +159,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "slayerEnabled",
+            keyName = ConfigKeys.SLAYER_ENABLED,
             name = "Enable slayer",
             description = "Trigger an action in Streamerbot when Dink fires a slayer notification",
             position = 13,
@@ -171,7 +171,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "slayerActionName",
+            keyName = ConfigKeys.SLAYER_ACTION_NAME,
             name = "Slayer action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink slayer notification",
             position = 14,
@@ -183,7 +183,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "questsEnabled",
+            keyName = ConfigKeys.QUESTS_ENABLED,
             name = "Enable quests",
             description = "Trigger an action in Streamerbot when Dink fires a quest notification",
             position = 15,
@@ -195,7 +195,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "questActionName",
+            keyName = ConfigKeys.QUEST_ACTION_NAME,
             name = "Quest action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink quest notification",
             position = 16,
@@ -207,7 +207,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "cluesEnabled",
+            keyName = ConfigKeys.CLUES_ENABLED,
             name = "Enable clue scrolls",
             description = "Trigger an action in Streamerbot when Dink fires a clue notification",
             position = 17,
@@ -219,7 +219,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "clueActionName",
+            keyName = ConfigKeys.CLUE_ACTION_NAME,
             name = "Clue action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink clue notification",
             position = 18,
@@ -231,7 +231,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "speedrunsEnabled",
+            keyName = ConfigKeys.SPEEDRUNS_ENABLED,
             name = "Enable speedruns",
             description = "Trigger an action in Streamerbot when Dink fires a quest speedrun notification",
             position = 19,
@@ -243,7 +243,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "speedrunActionName",
+            keyName = ConfigKeys.SPEEDRUN_ACTION_NAME,
             name = "Speedrun action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink quest speedrun notification",
             position = 20,
@@ -255,7 +255,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "killCountEnabled",
+            keyName = ConfigKeys.KILL_COUNT_ENABLED,
             name = "Enable kill count",
             description = "Trigger an action in Streamerbot when Dink fires a kill count notification",
             position = 21,
@@ -267,7 +267,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "killCountActionName",
+            keyName = ConfigKeys.KILL_COUNT_ACTION_NAME,
             name = "Kill count action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink kill count notification",
             position = 22,
@@ -279,7 +279,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "combatTaskEnabled",
+            keyName = ConfigKeys.COMBAT_TASK_ENABLED,
             name = "Enable combat tasks",
             description = "Trigger an action in Streamerbot when Dink fires a combat task notification",
             position = 23,
@@ -291,7 +291,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "combatTaskActionName",
+            keyName = ConfigKeys.COMBAT_TASK_ACTION_NAME,
             name = "Combat task action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink combat task notification",
             position = 24,
@@ -303,7 +303,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "diaryEnabled",
+            keyName = ConfigKeys.DIARY_ENABLED,
             name = "Enable diary",
             description = "Trigger an action in Streamerbot when Dink fires a achievement diary notification",
             position = 25,
@@ -315,7 +315,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "diaryActionName",
+            keyName = ConfigKeys.DIARY_ACTION_NAME,
             name = "Diary action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink diary notification",
             position = 26,
@@ -327,7 +327,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "gambleEnabled",
+            keyName = ConfigKeys.GAMBLE_ENABLED,
             name = "Enable BA gamble",
             description = "Trigger an action in Streamerbot when Dink fires a BA gamble notification",
             position = 27,
@@ -339,7 +339,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "gambleActionName",
+            keyName = ConfigKeys.GAMBLE_ACTION_NAME,
             name = "BA gamble action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink BA gamble notification",
             position = 28,
@@ -351,7 +351,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "playerKillsEnabled",
+            keyName = ConfigKeys.PLAYER_KILLS_ENABLED,
             name = "Enable player kills",
             description = "Trigger an action in Streamerbot when Dink fires a player kill notification",
             position = 29,
@@ -363,7 +363,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "playerKillActionName",
+            keyName = ConfigKeys.PLAYER_KILL_ACTION_NAME,
             name = "Player kill action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink player kill notification",
             position = 30,
@@ -375,7 +375,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "groupStorageEnabled",
+            keyName = ConfigKeys.GROUP_STORAGE_ENABLED,
             name = "Enable group storage",
             description = "Trigger an action in Streamerbot when Dink fires a group storage transaction notification",
             position = 31,
@@ -387,7 +387,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "groupStorageActionName",
+            keyName = ConfigKeys.GROUP_STORAGE_ACTION_NAME,
             name = "Group storage action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink group storage transaction notification",
             position = 32,
@@ -399,7 +399,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "grandExchangeEnabled",
+            keyName = ConfigKeys.GRAND_EXCHANGE_ENABLED,
             name = "Enable GE transactions",
             description = "Trigger an action in Streamerbot when Dink fires a Grand Exchange transaction notification",
             position = 33,
@@ -411,7 +411,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "grandExchangeActionName",
+            keyName = ConfigKeys.GRAND_EXCHANGE_ACTION_NAME,
             name = "GE transaction action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink Grand Exchange transaction notification",
             position = 34,
@@ -423,7 +423,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "tradesEnabled",
+            keyName = ConfigKeys.TRADES_ENABLED,
             name = "Enable trades",
             description = "Trigger an action in Streamerbot when Dink fires a trade notification",
             position = 35,
@@ -435,7 +435,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "tradesActionName",
+            keyName = ConfigKeys.TRADES_ACTION_NAME,
             name = "Trades action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink trade notification",
             position = 36,
@@ -446,8 +446,10 @@ public interface StreamerbotConfig extends Config {
         return "";
     }
 
+
+
     @ConfigItem(
-            keyName = "customChatEnabled",
+            keyName = ConfigKeys.CUSTOM_CHAT_ENABLED,
             name = "Enable custom chat",
             description = "Trigger an action in Streamerbot when Dink fires a custom chat notification",
             position = 37,
@@ -459,7 +461,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "customChatActionName",
+            keyName = ConfigKeys.CUSTOM_CHAT_ACTION_NAME,
             name = "Custom chat action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink custom chat notification",
             position = 38,
@@ -471,7 +473,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "externalPluginRequestsEnabled",
+            keyName = ConfigKeys.EXTERNAL_PLUGIN_REQUESTS_ENABLED,
             name = "Enable external plugin requests",
             description = "Trigger an action in Streamerbot when Dink fires an external plugin notification",
             position = 39,
@@ -483,7 +485,7 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "externalRequestActionName",
+            keyName = ConfigKeys.EXTERNAL_REQUEST_ACTION_NAME,
             name = "External request action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink external plugin notification",
             position = 40,
@@ -495,11 +497,37 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "metaNotifierEnabled",
+            keyName = ConfigKeys.LEAGUES_ENABLED,
+            name = "Enable leagues notifications",
+            description = "Trigger an action in Streamerbot when Dink fires a notification for <br/>" +
+                    "leagues area unlock, combat mastery unlock, relic unlock, task completion or trophy unlock",
+            position = 41,
+            section = dinkNotificationSection
+
+    )
+
+    default boolean leaguesEnabled() {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = ConfigKeys.LEAGUES_ACTION_NAME,
+            name = "Leagues action name",
+            description = "The exact name of the action to trigger in Streamerbot upon a Dink leagues notification",
+            position = 42,
+            section = dinkNotificationSection
+    )
+
+    default String leaguesActionName() {
+        return "";
+    }
+
+    @ConfigItem(
+            keyName = ConfigKeys.META_NOTIFIER_ENABLED,
             name = "Enable meta notifications",
             description = "Trigger an action in Streamerbot when Dink fires login, logout and ToA purple notification <br/>" +
                     "Note: To use this notifier, Dink's 'Custom Metadata Handler' setting in the 'Advanced' section must contain some URL",
-            position = 41,
+            position = 43,
             section = dinkNotificationSection
     )
 
@@ -508,10 +536,10 @@ public interface StreamerbotConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "metaNotifierActionName",
+            keyName = ConfigKeys.META_NOTIFIER_ACTION_NAME,
             name = "Meta notifier action name",
             description = "The exact name of the action to trigger in Streamerbot upon a Dink notification",
-            position = 42,
+            position = 44,
             section = dinkNotificationSection
     )
 

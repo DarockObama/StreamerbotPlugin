@@ -2,8 +2,13 @@ package com.streamerbot.dinkdata;
 import lombok.Data;
 import java.util.EnumSet;
 
-@Data
+//@Data
 public class Loot extends Item {
-    EnumSet<LootCriteria> criteria = EnumSet.noneOf(LootCriteria.class);
-    Double rarity = 0.0;
+    EnumSet<LootCriteria> criteria;
+    Double rarity;
+
+    public Loot() {
+        this.criteria = EnumSet.noneOf(LootCriteria.class);
+        this.rarity = 0.0;
+    }
 }

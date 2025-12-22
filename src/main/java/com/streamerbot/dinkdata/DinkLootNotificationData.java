@@ -6,8 +6,8 @@ import lombok.EqualsAndHashCode;
 import java.util.Collection;
 import java.util.Collections;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+//@EqualsAndHashCode(callSuper = false)
+//Data
 public class DinkLootNotificationData extends DinkNotificationData {
     Collection<Loot> items;
     String source;
@@ -18,6 +18,6 @@ public class DinkLootNotificationData extends DinkNotificationData {
     int npcId = 0;
 
     public DinkLootNotificationData() {
-        super("LOOT");
+        super(DinkNotificationType.LOOT);
     }
 }

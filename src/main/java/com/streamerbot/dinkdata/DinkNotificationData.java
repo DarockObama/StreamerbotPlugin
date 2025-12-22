@@ -1,17 +1,19 @@
 package com.streamerbot.dinkdata;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Data
+//@EqualsAndHashCode(callSuper = false)
+//Data
 public abstract class DinkNotificationData {
 
-    String type;
+    DinkNotificationType notificationType;
     String playerName;
     String accountType;
     String plainText;
 
     DinkNotificationData() {}
 
-    protected DinkNotificationData(String type) {
-        this.type = type;
+    protected DinkNotificationData(DinkNotificationType notificationType) {
+        this.notificationType = notificationType;
     }
 }

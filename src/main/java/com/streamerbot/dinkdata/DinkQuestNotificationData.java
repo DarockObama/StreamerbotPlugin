@@ -3,8 +3,8 @@ package com.streamerbot.dinkdata;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+//@EqualsAndHashCode(callSuper = false)
+//@Data
 public class DinkQuestNotificationData extends DinkNotificationData {
     String questName;
     int completedQuests = 0;
@@ -13,6 +13,6 @@ public class DinkQuestNotificationData extends DinkNotificationData {
     int totalQuestPoints = 0;
 
     DinkQuestNotificationData () {
-        super("QUEST");
+        super(DinkNotificationType.QUEST);
     }
 }

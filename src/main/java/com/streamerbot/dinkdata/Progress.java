@@ -1,0 +1,19 @@
+package com.streamerbot.dinkdata;
+
+import lombok.Data;
+
+//@Data
+public class Progress {
+    int completed;
+    int total;
+
+    public Progress(int completed, int total) {
+        this.completed = completed;
+        this.total = total;
+    }
+
+    public Progress() {
+        this.completed = 0;
+        this.total = 0;
+    }
+}

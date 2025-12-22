@@ -1,9 +1,7 @@
 package com.streamerbot.triggers;
 import com.google.gson.JsonSyntaxException;
-import com.streamerbot.dinkdata.DinkCollectionNotificationData;
-import com.streamerbot.dinkdata.DinkDeathNotificationData;
-import com.streamerbot.dinkdata.DinkNotificationData;
-import com.streamerbot.dinkdata.DinkNotificationType;
+import com.streamerbot.ConfigKeys;
+import com.streamerbot.dinkdata.*;
 import com.streamerbot.messaging.DoActionRequest;
 import net.runelite.client.events.PluginMessage;
 import lombok.extern.slf4j.Slf4j;
@@ -16,24 +14,9 @@ public class DinkRequestTrigger extends BaseTrigger {
 
     private static final String DINK_KEY = "dinkplugin";
 
-    private final Map<DinkNotificationType, Class<? extends DinkNotificationData>> registry = Map.of(
-            DinkNotificationType.COLLECTION, DinkCollectionNotificationData.class,
-            DinkNotificationType.DEATH, DinkDeathNotificationData.class
-    );
-
-    String actionNameFromConfig(DinkNotificationType type) {
-        String key = type.name();
-        return configManager.getConfiguration(CONFIG_GROUP, key, String.class);
+    String actionName(DinkNotificationType type) {
+        return configManager.getConfiguration(CONFIG_GROUP, type.getActionKey(), String.class);
     }
-
-    private boolean collectionLogEnabled() {
-        return config.collectionLogEnabled() && !config.collectionLogActionName().isEmpty();
-    }
-
-    private boolean deathEnabled() {
-        return config.deathEnabled() && !config.deathActionName().isEmpty();
-    }
-
 
      public void onPluginMessage(PluginMessage pluginMessage) {
         if (!pluginMessage.getNamespace().equals(DINK_KEY)) {
@@ -41,18 +24,26 @@ public class DinkRequestTrigger extends BaseTrigger {
             return;
         }
 
-        DinkNotificationType type = DinkNotificationType.fromName(pluginMessage.getName());
+        DinkNotificationType notificationType = DinkNotificationType.fromName(pluginMessage.getName());
 
-        if(type == DinkNotificationType.DEATH) {
-            if(!deathEnabled()) {
-                log.debug("Death disabled, returning");
-                return;
-            }
+        if(notificationType == DinkNotificationType.UNKNOWN) {
+            log.debug("Invalid notification, returning");
+            return;
+        }
 
-            Map<String, Object> data = pluginMessage.getData();
-            DinkNotificationData input;
+        boolean enabled = configManager.getConfiguration(ConfigKeys.CONFIG_GROUP, notificationType.getEnabledKey(), boolean.class);
+        String actionName = configManager.getConfiguration(ConfigKeys.CONFIG_GROUP, notificationType.getActionKey(), String.class);
+
+        if(!enabled || actionName.isEmpty()) {
+            log.debug("Notification type {} is disabled, returning", notificationType.getType());
+            return;
+        }
+
+
+        Map<String, Object> data = pluginMessage.getData();
+        DinkNotificationData input;
             log.debug("Attempting to make request");
-            Class<? extends DinkNotificationData> clazz = type.getDataClass();
+            Class<? extends DinkNotificationData> clazz = notificationType.getDataClass();
             try {
                 input = gson.fromJson(gson.toJsonTree(data), clazz);
             } catch (JsonSyntaxException e) {
@@ -60,11 +51,11 @@ public class DinkRequestTrigger extends BaseTrigger {
                 return;
             }
 
-            DoActionRequest request = new DoActionRequest(config.deathActionName(), input);
+            DoActionRequest request = new DoActionRequest(actionName, input);
             String json = gson.toJson(request);
             log.debug(json);
             sendRequest(json);
-        }
     }
+
 }
 

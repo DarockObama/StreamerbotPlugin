@@ -5,14 +5,14 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Collection;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+//@EqualsAndHashCode(callSuper = false)
+//@Data
 public class DinkClueNotificationData extends DinkNotificationData {
     String clueType;
     int numberCompleted;
     Collection<Item> items;
 
     public DinkClueNotificationData() {
-        super("CLUE");
+        super(DinkNotificationType.CLUE);
     }
 }
