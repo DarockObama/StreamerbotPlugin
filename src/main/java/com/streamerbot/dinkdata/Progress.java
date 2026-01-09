@@ -2,7 +2,7 @@ package com.streamerbot.dinkdata;
 
 import lombok.Data;
 
-//@Data
+@Data
 public class Progress {
     int completed;
     int total;

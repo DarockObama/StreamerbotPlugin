@@ -5,8 +5,8 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkGambleNotificationData extends DinkNotificationData {
     int gambleCount;
     List<Item> items;

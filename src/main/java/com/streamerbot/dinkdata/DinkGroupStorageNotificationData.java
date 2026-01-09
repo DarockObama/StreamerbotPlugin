@@ -5,8 +5,8 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Collection;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkGroupStorageNotificationData extends DinkNotificationData {
     Collection<Item> deposits;
     Collection<Item> withdrawals;

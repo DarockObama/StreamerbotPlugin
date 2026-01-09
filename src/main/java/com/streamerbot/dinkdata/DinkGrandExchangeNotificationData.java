@@ -4,8 +4,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Data;
 import net.runelite.api.GrandExchangeOfferState;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkGrandExchangeNotificationData extends DinkNotificationData {
     int slot;
     GrandExchangeOfferState status;

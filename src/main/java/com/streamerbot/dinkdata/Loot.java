@@ -1,8 +1,10 @@
 package com.streamerbot.dinkdata;
 import lombok.Data;
-import java.util.EnumSet;
+import lombok.EqualsAndHashCode;
 
-//@Data
+import java.util.EnumSet;
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class Loot extends Item {
     EnumSet<LootCriteria> criteria;
     Double rarity;

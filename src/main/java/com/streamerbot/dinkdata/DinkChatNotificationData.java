@@ -2,10 +2,9 @@ package com.streamerbot.dinkdata;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import net.runelite.api.ChatMessageType;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkChatNotificationData extends DinkNotificationData {
     String type;
     String source;

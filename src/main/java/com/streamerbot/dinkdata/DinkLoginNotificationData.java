@@ -6,8 +6,8 @@ import lombok.EqualsAndHashCode;
 import java.util.Collections;
 import java.util.Map;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkLoginNotificationData extends DinkNotificationData {
     Progress collectionLog = new Progress();
     Progress combatAchievementPoints = new Progress();

@@ -1,6 +1,22 @@
 package com.streamerbot;
 
-public class ConfigKeys {
+import com.streamerbot.dinkdata.DinkNotificationType;
+import com.streamerbot.util.KeyFormatter;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.client.events.ConfigChanged;
+import net.runelite.client.externalplugins.ExternalPluginManager;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.util.List;
+
+@Slf4j
+@Singleton
+@RequiredArgsConstructor(onConstructor_ = { @Inject })
+public class SettingsManager {
+    private final StreamerbotPlugin plugin;
+    private final ExternalPluginManager externalPluginManager;
 
     public static final String CONFIG_GROUP = "StreamerbotPlugin";
 
@@ -46,4 +62,34 @@ public class ConfigKeys {
     public static final String LEAGUES_ACTION_NAME = "leaguesActionName";
     public static final String META_NOTIFIER_ENABLED = "metaNotifierEnabled";
     public static final String META_NOTIFIER_ACTION_NAME = "metaNotifierActionName";
+
+    public static final String DINK_PLUGIN_NAME = "dink";
+
+
+    public void init() {
+        List<String> plugins = externalPluginManager.getInstalledExternalPlugins();
+        if(!plugins.contains(DINK_PLUGIN_NAME)) {
+
+        }
+    }
+
+    public void onConfigChanged(ConfigChanged configChanged) {
+        if(!configChanged.getGroup().equals(CONFIG_GROUP)) {
+            return;
+        }
+
+
+        String key = configChanged.getKey();
+        String value = configChanged.getNewValue();
+
+        if(!DinkNotificationType.existsWithEnabledKey(key)) {
+            log.debug("Not a Dink notification enabled setting, returning");
+            return;
+        }
+
+        if("true".equals(value)) {
+            String notifier = KeyFormatter.toReadableName((key));
+            plugin.addChatWarning("To use this trigger, make sure " + notifier + " notifications are configured correctly in Dink Plugin");
+        }
+    }
 }

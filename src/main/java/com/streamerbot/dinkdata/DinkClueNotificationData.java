@@ -5,8 +5,8 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Collection;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkClueNotificationData extends DinkNotificationData {
     String clueType;
     int numberCompleted;

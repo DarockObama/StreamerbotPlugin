@@ -4,13 +4,11 @@ package com.streamerbot.triggers;
 import com.google.gson.Gson;
 import com.streamerbot.StreamerbotConfig;
 import com.streamerbot.messaging.TriggerHandler;
-import com.streamerbot.util.HttpUrlAdapter;
 import com.streamerbot.util.StringToIntAdapter;
 import lombok.extern.slf4j.Slf4j;
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.client.config.ConfigManager;
-import okhttp3.HttpUrl;
 
 @Slf4j
 public abstract class BaseTrigger {
@@ -19,7 +17,6 @@ public abstract class BaseTrigger {
     @Inject
     void init(Gson gson) {
         this.gson = gson.newBuilder()
-                .registerTypeAdapter(HttpUrl.class, new HttpUrlAdapter())
                 .registerTypeAdapter(Integer.class, new StringToIntAdapter())
                 .registerTypeAdapter(int.class, new StringToIntAdapter())
                 .create();

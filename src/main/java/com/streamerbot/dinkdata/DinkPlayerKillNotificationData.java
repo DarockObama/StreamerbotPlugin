@@ -8,8 +8,8 @@ import net.runelite.api.kit.KitType;
 import java.util.Map;
 
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkPlayerKillNotificationData extends DinkNotificationData {
     String victimName;
     int victimCombatLevel;

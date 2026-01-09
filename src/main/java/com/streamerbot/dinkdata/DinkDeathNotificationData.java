@@ -5,8 +5,8 @@ import lombok.EqualsAndHashCode;
 import java.util.Collection;
 import java.util.Collections;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkDeathNotificationData extends DinkNotificationData {
 
     long valueLost = 0;

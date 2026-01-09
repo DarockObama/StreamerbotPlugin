@@ -5,8 +5,8 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Map;
 
-//@EqualsAndHashCode(callSuper = false)
-//@Data
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DinkExternalNotificationData extends DinkNotificationData {
     String sourcePlugin;
     Map<String, Object> metadata;
