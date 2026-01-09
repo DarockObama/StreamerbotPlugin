@@ -69,7 +69,7 @@ public class SettingsManager {
     public void init() {
         List<String> plugins = externalPluginManager.getInstalledExternalPlugins();
         if(!plugins.contains(DINK_PLUGIN_NAME)) {
-
+            plugin.addChatWarning("Dink must be installed and have configured before this plugin can send triggers");
         }
     }
 
