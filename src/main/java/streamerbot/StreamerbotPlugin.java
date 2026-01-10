@@ -68,12 +68,12 @@ public class StreamerbotPlugin extends Plugin {
         dinkRequestTrigger.onPluginMessage(pluginMessage);
     }
 
-    public final static Color PINK = ColorUtil.fromHex("#f40098");
+    public final static Color PURPLE = ColorUtil.fromHex("#a257ed");
     public final Color RED = ColorUtil.fromHex("#ca2a2d");
 
     void addChatWarning(String message) {
         String formatted = String.format("[%s] %s: %s",
-                ColorUtil.wrapWithColorTag(getName(), PINK),
+                ColorUtil.wrapWithColorTag(getName(), PURPLE),
                 "Warning",
                 ColorUtil.wrapWithColorTag(message, RED)
         );
