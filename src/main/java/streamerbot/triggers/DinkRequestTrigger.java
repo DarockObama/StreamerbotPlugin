@@ -2,7 +2,7 @@ package streamerbot.triggers;
 
 import com.google.gson.JsonSyntaxException;
 import streamerbot.SettingsManager;
-import com.streamerbot.dinkdata.*;
+import streamerbot.dinkdata.*;
 import streamerbot.dinkdata.DinkNotificationData;
 import streamerbot.dinkdata.DinkNotificationType;
 import streamerbot.messaging.DoActionRequest;
