@@ -25,14 +25,12 @@ public class DinkRequestTrigger extends BaseTrigger {
 
     public void onPluginMessage(PluginMessage pluginMessage) {
         if (!pluginMessage.getNamespace().equals(DINK_KEY)) {
-            log.debug("Not a Dink pluginMessage, returning");
             return;
         }
 
         DinkNotificationType notificationType = DinkNotificationType.fromName(pluginMessage.getName());
 
         if (notificationType == DinkNotificationType.UNKNOWN) {
-            log.debug("Invalid notification, returning");
             return;
         }
 

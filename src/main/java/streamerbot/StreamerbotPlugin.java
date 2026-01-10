@@ -21,7 +21,7 @@ import java.awt.*;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Streamerbot Plugin",
+        name = "Streamerbot",
         description = "Lets in-game events trigger Streamerbot actions. <br/>"
                 + "Requires the use of the Streamerbot application and Dink plugin",
         tags = {"streamer", "notifier", "trigger", "OBS", "Streamerbot", "Twitch"}
