@@ -33,7 +33,7 @@ Dink Plugin to be running.
 
 1. Download and install the Streamerbot application, using
    the [Installation Guide](https://docs.streamer.bot/get-started/installation).
-2. Connect your Streamerbot to your broadcasting software and streaming platform of choice, using
+2. Connect your Streamerbot to your broadcasting software and streaming platform(s) of choice, using
    the [Initial Setup Guide](https://docs.streamer.bot/get-started/setup).
 3. Set up your Streamerbot to receive HTTP
    requests: [HTTP Server Configuration guide](https://docs.streamer.bot/api/http/guide/configuration). You can leave
@@ -60,9 +60,10 @@ default `http://127.0.0.1:7474`. Enable your notifier of choice and copy the exa
 of your action in Streamerbot to the `action name` field corresponding to your chosen notifier.
 
 ### Setting up Dink
+
 Currently, all notifiers of the Streamerbot plugin rely on Dink notifiers.
 
-Install Dink from the Plugin Hub and enable the notifier corresponding to the one enabled in the Streamerbot plugin. 
+Install Dink from the Plugin Hub and enable the notifier corresponding to the one enabled in the Streamerbot plugin.
 The Streamerbot plugin receives Dink's notifications whenever Dink would normally notify a Discord
 webhook. You can therefore set the conditions for the notifier through the settings in Dink. If you already had
 Dink installed, the notifier in Dink corresponding to the one you enabled in the Streamerbot plugin is enabled
@@ -71,20 +72,52 @@ automatically, but you will still have to configure its notify conditions.
 <sub> Some Dink notifiers, like the Collection Log notifier, require you to configure some in-game settings. Dink will 
 display a warning in game chat when this is the case. </sub>
 
+
+
 ### Example notifier
-In this example we will build a notifier that plays the iconic 'YOU DIED' animation inside OBS whenever your 
-in-game character dies. You can download `YOU DIED.mov` from the `resources` folder in this plugin's repository.
 
-#### OBS
-1. Go to the OBS scene where you keep your other alert sources. Inside the list of sources right click 
-`Add source > Media Srouce`. Give this a name and browse to select the file `YOU DIED.mov`. Make sure check 'Restart playback 
-when source becomes active' ✅.
+<details>
+
+<summary>Click here to open the tutorial</summary>
+
+In this example we will build a notifier that plays the iconic 'YOU DIED' animation inside OBS Studio whenever your
+in-game character dies. You can download `YOU DIED.mov` from the `resources` folder in this plugin's repository. 
+
+**Note:** For this tutorial you must have your Streamerbot application connected to your OBS Studio. If you haven't 
+done this already, please follow these [steps](https://docs.streamer.bot/get-started/setup#obs-studio).
+
+
+#### OBS Studio
+
+1. Go to the OBS scene where you keep your other alert sources. Inside the list of sources right-click
+   `Add Source > Media Srouce`. Give this a name navigate to the file `YOU DIED.mov`. Make sure check 'Restart playback
+   when source becomes active' ✅. Click 'OK'.
+
+   
+![OBS1](resources/OBS1.png)
+![OBS2](resources/OBS2.png)
+![OBS3](resources/OBS3.png)
+
+2. Make sure this media source is on above your RuneLite. If you want to be able to hear this alert, right-click the
+   **Audio Mixer** and select ``Advanced Audio Properties`` and make sure your added media source has 'Monitor and
+   Output'
+   as the **Audio Monitoring** option. Once that's done, set the media source as 'invisible'.
+  ![OBS4.png](resources/OBS4.png)
+<sub> It is best practice to organize your alert overlays by scene nesting, but that's outside the scope of this
+   tutorial. </sub>
+
+![OBS4](resources/OBS4.png)
+
+![OBS5](resources/OBS5.png)
+
+![OBS6](resources/OBS6.png)
+
+
+### Streamerbot
 
 
 
-<sub> Feel free to use best practice by adding </sub>
-
-
+</details>
 
 ### Metadata
 
