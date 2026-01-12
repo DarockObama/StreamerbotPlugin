@@ -55,7 +55,6 @@ public class DinkRequestTrigger extends BaseTrigger {
 
         DoActionRequest request = new DoActionRequest(actionName, input);
         String json = gson.toJson(request);
-        log.debug(json);
         sendRequest(json);
     }
 }
