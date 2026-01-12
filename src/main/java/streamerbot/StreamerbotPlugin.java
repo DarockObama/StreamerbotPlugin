@@ -68,23 +68,39 @@ public class StreamerbotPlugin extends Plugin {
         dinkRequestTrigger.onPluginMessage(pluginMessage);
     }
 
-    public final static Color PURPLE = ColorUtil.fromHex("#a257ed");
-    public final Color RED = ColorUtil.fromHex("#ca2a2d");
+    private final static Color CYAN = ColorUtil.fromHex("#00c7ff");
+    private final static Color RED = ColorUtil.fromHex("#ca2a2d");
 
-    void addChatWarning(String message) {
+
+    public void queueMessage(String formatted) {
+        chatManager.queue(
+        QueuedMessage.builder()
+                .type(ChatMessageType.CONSOLE)
+                .runeLiteFormattedMessage(formatted)
+                .build()
+        );
+    }
+
+    public void addChatWarning(String message) {
         String formatted = String.format("[%s] %s: %s",
-                ColorUtil.wrapWithColorTag(getName(), PURPLE),
+                ColorUtil.wrapWithColorTag(getName(), CYAN),
                 "Warning",
                 ColorUtil.wrapWithColorTag(message, RED)
         );
 
-        chatManager.queue(
-                QueuedMessage.builder()
-                        .type(ChatMessageType.CONSOLE)
-                        .runeLiteFormattedMessage(formatted)
-                        .build()
-        );
+        queueMessage(formatted);
     }
+
+    public void addChatNotice(String message) {
+        String formatted = String.format("[%s] %s: %s",
+                ColorUtil.wrapWithColorTag(getName(), CYAN),
+                "Notice",
+                message
+        );
+
+        queueMessage(formatted);
+    }
+
 
     @Provides
     StreamerbotConfig provideConfig(ConfigManager configManager) {

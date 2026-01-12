@@ -77,25 +77,25 @@ public class SettingsManager {
 
     private static final String DINK_NOT_INSTALLED_WARNING = "Dink plugin must be installed and configured.";
     private static final String DINK_DISABLED_WARNING = "Dink plugin must be enabled and configured.";
-    private static final String DINK_META_DISABLED_WARNING = "To use trigger, Dink's 'Custom Metadata Handler' field in 'Advanced' must be not blank.";
-    private static final String DINK_NOTIFIER_WARNING = "The corresponding Dink notifier must be enabled for this trigger.";
+    private static final String DINK_META_DISABLED_WARNING = "To use this trigger, Dink's 'Custom Metadata Handler' field in 'Advanced' must be not blank.";
+    private static final String DINK_NOTIFIER_NOTICE = "The corresponding Dink notifier has been enabled. To set the conditions of this notifier, use this notifier's settings in Dink.";
 
     void checkDinkAndWarn(String key) {
         List<String> plugins = externalPluginManager.getInstalledExternalPlugins();
-        if(!plugins.contains(DINK_PLUGIN_NAME)) {
+        if (!plugins.contains(DINK_PLUGIN_NAME)) {
             plugin.addChatWarning(DINK_NOT_INSTALLED_WARNING);
             return;
-        } else {
-            boolean dinkEnabled = configManager.getConfiguration(RUNELITE_CONFIG_GROUP, DINK_CONFIG_GROUP, boolean.class);
-            if(!dinkEnabled) {
-                plugin.addChatWarning(DINK_DISABLED_WARNING);
-            }
         }
 
-        if(key.equals(META_NOTIFIER_ENABLED)) {
+        boolean dinkEnabled = configManager.getConfiguration(RUNELITE_CONFIG_GROUP, DINK_CONFIG_GROUP, boolean.class);
+        if (!dinkEnabled) {
+            plugin.addChatWarning(DINK_DISABLED_WARNING);
+        }
+
+        if (key.equals(META_NOTIFIER_ENABLED)) {
             checkMetaAndWarn();
         } else {
-            checkNotifierAndWarn(key);
+            checkAndSetNotifier(key);
         }
     }
 
@@ -103,10 +103,11 @@ public class SettingsManager {
      * This approach relies on our key names matching those of Dink plugin.
      */
 
-    void checkNotifierAndWarn(String key) {
+    void checkAndSetNotifier(String key) {
         String notifierEnabled = configManager.getConfiguration(DINK_CONFIG_GROUP, key);
         if("false".equals(notifierEnabled)) { // notifierEnabled should not be null, but this avoids the null just in case
-            plugin.addChatWarning("The corresponding Dink notifier must be enabled for this trigger");
+            configManager.setConfiguration(DINK_CONFIG_GROUP, key, true);
+            plugin.addChatNotice(DINK_NOTIFIER_NOTICE);
         }
     }
 
@@ -121,7 +122,7 @@ public class SettingsManager {
         String key = configChanged.getKey();
         String value = configChanged.getNewValue();
 
-        if(DinkNotificationType.existsWithEnabledKey(key) && "true".equals(value) && config.warningsEnabled() && client.getGameState() == GameState.LOGGED_IN) {
+        if (DinkNotificationType.existsWithEnabledKey(key) && "true".equals(value) && config.warningsEnabled() && client.getGameState() == GameState.LOGGED_IN) {
             checkDinkAndWarn(key);
         }
     }

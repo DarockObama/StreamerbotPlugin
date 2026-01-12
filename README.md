@@ -54,18 +54,24 @@ Install and enable the Streamerbot plugin from the Plugin Hub. Unless either you
 address or you're sending requests to a remote instance of Streamerbot, leave `Streamerbot address` as the default
 `http://127.0.0.1:7474`
 of Streamerbot. Enable your notifier of choice and copy the exact name
-of your action in Streamerbot to the `action name` field corresponding to your chosen notifier.
+of your action in Streamerbot to the `action name` field corresponding to your chosen notifier. 
 
 ### Setting up Dink
-Although Dink is originally used to send 
-notifications to Discord webhooks, it can now also notify other plugins. Install Dink from the Plugin Hub and enable 
-the notifier of your choice. The notification is sent to other plugins whenever Dink would normally notify a Discord 
-webhook. You can therefore set the conditions for the notifier through the settings in Dink.
+Currently, all notifiers of the Streamerbot plugin rely on Dink notifiers.
+
+Install Dink from the Plugin Hub and enable the notifier corresponding to the one in the Streamerbot plugin. The
+notification is sent to other plugins whenever
+Dink would normally notify a Discord
+webhook. You can therefore set the conditions for the notifier through the settings in Dink. If you had already had
+Dink installed, the corresponding notifier in Dink is enabled automatically, but you will still have to configure the 
+other settings of the notifier.
 
 <sub> Some Dink notifiers, like the Collection Log notifier, require you to configure some in-game settings. Dink will 
 display a warning in game chat when this is the case. </sub>
 
 ### Example
+
+
 
 ### Metadata
 
