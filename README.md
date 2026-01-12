@@ -73,7 +73,7 @@ display a warning in game chat when this is the case. </sub>
 
 ### Example notifier
 In this example we want to build a notifier that plays the iconic 'YOU DIED' animation inside OBS whenever your 
-in-game character dies. Go to  folder of this plugin's repository. 
+in-game character dies. (Add instructions to download the file)
 
 
 ### Metadata
