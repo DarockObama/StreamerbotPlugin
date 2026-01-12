@@ -72,8 +72,18 @@ automatically, but you will still have to configure its notify conditions.
 display a warning in game chat when this is the case. </sub>
 
 ### Example notifier
-In this example we want to build a notifier that plays the iconic 'YOU DIED' animation inside OBS whenever your 
-in-game character dies. (Add instructions to download the file)
+In this example we will build a notifier that plays the iconic 'YOU DIED' animation inside OBS whenever your 
+in-game character dies. You can download `YOU DIED.mov` from the `resources` folder in this plugin's repository.
+
+#### OBS
+1. Go to the OBS scene where you keep your other alert sources. Inside the list of sources right click 
+`Add source > Media Srouce`. Give this a name and browse to select the file `YOU DIED.mov`. Make sure check 'Restart playback 
+when source becomes active' ✅.
+
+
+
+<sub> Feel free to use best practice by adding </sub>
+
 
 
 ### Metadata
