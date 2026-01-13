@@ -89,7 +89,7 @@ in-game character dies. You can download `YOU DIED.mov` from the `resources` fol
 
 **Note:** For this tutorial you must have your Streamerbot application connected to your OBS Studio. If you haven't
 done this already, please follow these [steps](https://docs.streamer.bot/get-started/setup#obs-studio). A status
-indicator top-right in your Streamerbot window will light
+indicator in the top-right corner of the Streamerbot window will light
 up green 🟢 once this is done successfully. Additionally, the HTTP server in your Streamerbot must be enabled.
 Refer to step 3. of [Setting up Streamerbot](#setting-up-streamerbot)
 
@@ -100,10 +100,10 @@ Refer to step 3. of [Setting up Streamerbot](#setting-up-streamerbot)
    `YOU DIED.mov`. Make sure to check 'Restart playback
    when source becomes active' ✅. Click 'OK'.
 
-<sub> It is best practice to organize your alert overlays by scene nesting, but that's outside the scope of this
-   tutorial. </sub>
+<sub>
+It is best practice to organize your alert overlays by scene nesting, but that's outside the scope of this tutorial. 
+</sub>
 
-   
 ![OBS1](resources/OBS1.png)
 ![OBS2](resources/OBS2.png)
 ![OBS3](resources/OBS3.png)
@@ -171,13 +171,26 @@ By default, Dink's death notifier will ignore safe deaths. If you do want the al
 death notifier fires. Some of these settings, such as `Send Image` and `Embed Kept Items` can be ignored, as they're 
 only relevant for sending notifications to Discord webhooks with Dink.
 
-Your alerts should now be ready to use! Your result should look something like this. 
+Your death alert should now be ready to use! The result should look like this in OBS Studio.
 
 [![Example](https://img.youtube.com/vi/0YfdTtCFP4Q/0.jpg)](https://www.youtube.com/watch?v=0YfdTtCFP4Q)
 
+</details>
 
+### Data
 
+When a notifier fires, data relevant to the in-game event is sent alongside the notification to Streamerbot.
+All notifiers will send the data `notificationType` indicating the type of event, `playerName`, `accountType` and
+`plainText`, which is the message configured within Dink, besides their individual dataset.
+For example, on player death the death notifier sends the int `valueLost`, indicating how much wealth
+in gp the player lost. It also sends the boolean `isPvp`, which has the value `true` if another player killed the user
+and `false` otherwise, and the string `killerName`, which is populated by a string when applicable, among other
+variables.
 
-### Metadata
+For a full overview of the data that's sent with each notifier, see
+Dink's [JSON examples](https://github.com/pajlads/DinkPlugin/blob/master/docs/json-examples.md). Of each notifier, its 
+unique dataset is contained inside `"extra"`.
+
+With each notifier, you can use the included data get really creative! 
 
 ## Credits and Attribution
