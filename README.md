@@ -179,15 +179,20 @@ Your death alert should now be ready to use! The result should look like this in
 
 ### Data
 
-When a notifier fires, data relevant to the in-game event is sent alongside the notification to Streamerbot.
-All notifiers will send the data `notificationType` indicating the type of event, `playerName`, `accountType` and
+When a notifier fires, data relevant to the in-game event is sent alongside the notification to Streamerbot. In the
+spirit of Streamerbot, we shall refer to the data as 'variables'. All notifiers will send the variables `notificationType`
+indicating the type of event, `playerName`, `accountType` and
 `plainText`, which is the message configured within Dink, besides their individual dataset.
-For example, on player death the death notifier sends the int `valueLost`, indicating how much wealth
+For example, on player death the death notifier sends the integer `valueLost`, indicating how much wealth
 in gp the player lost. It also sends the boolean `isPvp`, which has the value `true` if another player killed the user
-and `false` otherwise, and the string `killerName`, which is populated by a string when applicable, among other
-variables.
+and `false` otherwise, and the string `killerName`, indicating who or what npc killed you (when applicable),
+among other variables.
 
-For a full overview of the data that's sent with each notifier, see
+On certain events, some variables cannot have a meaningful value. For example if your character dies without being 
+killed by a player or npc, `killerName` will simply have the value "N/A". Other nullable string variables will also 
+have this behavior. 
+
+For a full overview of the variables that's sent with each notifier, see
 Dink's [JSON examples](https://github.com/pajlads/DinkPlugin/blob/master/docs/json-examples.md). Of each notifier, its 
 unique dataset is contained inside `"extra"`.
 
