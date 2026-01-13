@@ -78,7 +78,7 @@ public class SettingsManager {
     private static final String DINK_NOT_INSTALLED_WARNING = "Dink plugin must be installed and configured.";
     private static final String DINK_DISABLED_WARNING = "Dink plugin must be enabled and configured.";
     private static final String DINK_META_DISABLED_WARNING = "To use this trigger, Dink's 'Custom Metadata Handler' field in 'Advanced' must be not blank.";
-    private static final String DINK_NOTIFIER_NOTICE = "The corresponding Dink notifier has been enabled. To set the conditions of this notifier, use this notifier's settings in Dink.";
+    private static final String DINK_NOTIFIER_NOTICE = "The corresponding Dink notifier has been enabled. To set the conditions of this notifier, go to the corresponding notifier's settings in Dink.";
 
     void checkDinkAndWarn(String key) {
         List<String> plugins = externalPluginManager.getInstalledExternalPlugins();

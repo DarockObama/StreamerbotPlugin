@@ -37,13 +37,13 @@ Dink Plugin to be running.
    the [Initial Setup Guide](https://docs.streamer.bot/get-started/setup).
 3. Set up your Streamerbot to receive HTTP
    requests: [HTTP Server Configuration guide](https://docs.streamer.bot/api/http/guide/configuration). You can leave
-   the  **Address** as the default `127.0.0.1`
+   the  **Address** as the default `127.0.0.1`.
    and the **Port** as the default `7474` for our use case, unless you have to use a different address for some reason.
+   Enable **Auto Start** for future use and simply press `⏻ Start Server`. Your Streamerbot server is now running.
 4. Build an action that you want Streamerbot to execute upon an in-game event. The name you will give to this action
    will be important for later.
    For an explanation on how to do this,
-   [click here](https://docs.streamer.bot/guide/actions). For a beginner-friendly tutorial for building your first fully functioning action in
-   Streamerbot, see the [Example notifier](#example-notifier).
+   [click here](https://docs.streamer.bot/guide/actions).
 
 <sub> Note: Normally, actions in Streamerbot require a trigger to 
 execute them on given events. In our case, this is not needed, since the HTTP server we just set up simply executes 
@@ -57,7 +57,7 @@ which in our case is the Streamerbot plugin in RuneLite.
 Install and enable the Streamerbot plugin from the Plugin Hub. Unless either your Streamerbot application uses a
 nondefault address or you're sending requests to a remote instance of Streamerbot, leave `Streamerbot address` as the
 default `http://127.0.0.1:7474`. Enable your notifier of choice and copy the exact name
-of your action in Streamerbot to the `action name` field corresponding to your chosen notifier.
+of your action in Streamerbot (not case-sensitive) to the `action name` field corresponding to your chosen notifier.
 
 ### Setting up Dink
 
@@ -69,10 +69,14 @@ webhook. You can therefore set the conditions for the notifier through the setti
 Dink installed, the notifier in Dink corresponding to the one you enabled in the Streamerbot plugin is enabled
 automatically, but you will still have to configure its notify conditions.
 
-<sub> Some Dink notifiers, like the Collection Log notifier, require you to configure some in-game settings. Dink will 
-display a warning in game chat when this is the case. </sub>
+<sub> Some Dink notifiers, like the Collection Log notifier, require you to configure in-game settings in addition. 
+Dink will send a warning in game chat when this is the case. </sub>
 
-
+Your Streamerbot action triggered on in-game events is now complete. Whenever the configured event takes place in
+your game instance, your Streamerbot action will be executed. This basic setup serves to give you a broad idea of
+how this plugin should be used with Streamerbot and your streaming ecosystem. If you'd like to see a more
+concrete example, see the [Example notifier](#example-notifier), where you can build your first fully functioning game
+event-based alert.
 
 ### Example notifier
 
@@ -83,28 +87,32 @@ display a warning in game chat when this is the case. </sub>
 In this example we will build a notifier that plays the iconic 'YOU DIED' animation inside OBS Studio whenever your
 in-game character dies. You can download `YOU DIED.mov` from the `resources` folder in this plugin's repository. 
 
-**Note:** For this tutorial you must have your Streamerbot application connected to your OBS Studio. If you haven't 
-done this already, please follow these [steps](https://docs.streamer.bot/get-started/setup#obs-studio).
+**Note:** For this tutorial you must have your Streamerbot application connected to your OBS Studio. If you haven't
+done this already, please follow these [steps](https://docs.streamer.bot/get-started/setup#obs-studio). A status
+indicator top-right in your Streamerbot window will light
+up green 🟢 once this is done successfully. Additionally, the HTTP server in your Streamerbot must be enabled.
+Refer to step 3. of [Setting up Streamerbot](#setting-up-streamerbot)
 
-
-#### OBS Studio
+#### In OBS Studio setup
 
 1. Go to the OBS scene where you keep your other alert sources. Inside the list of sources right-click
-   `Add Source > Media Srouce`. Give this a name navigate to the file `YOU DIED.mov`. Make sure check 'Restart playback
+   `Add Source > Media Srouce`. Give this a name. In our example we name it `You died`. Navigate to the file
+   `YOU DIED.mov`. Make sure to check 'Restart playback
    when source becomes active' ✅. Click 'OK'.
+
+<sub> It is best practice to organize your alert overlays by scene nesting, but that's outside the scope of this
+   tutorial. </sub>
 
    
 ![OBS1](resources/OBS1.png)
 ![OBS2](resources/OBS2.png)
 ![OBS3](resources/OBS3.png)
 
-2. Make sure this media source is on above your RuneLite. If you want to be able to hear this alert, right-click the
-   **Audio Mixer** and select ``Advanced Audio Properties`` and make sure your added media source has 'Monitor and
+2. Like all alert overlays, make sure this media source is above your RuneLite source. If you want to be able to hear
+   this alert, right-click the
+   **Audio Mixer** and select `Advanced Audio Properties` and make sure your added media source has 'Monitor and
    Output'
-   as the **Audio Monitoring** option. Once that's done, set the media source as 'invisible'.
-  ![OBS4.png](resources/OBS4.png)
-<sub> It is best practice to organize your alert overlays by scene nesting, but that's outside the scope of this
-   tutorial. </sub>
+   as the **Audio Monitoring** option. Once that's done, click the eye icon to hide it . You will see later why.
 
 ![OBS4](resources/OBS4.png)
 
@@ -112,12 +120,64 @@ done this already, please follow these [steps](https://docs.streamer.bot/get-sta
 
 ![OBS6](resources/OBS6.png)
 
+#### Streamerbot setup
 
-### Streamerbot
+1. In your Streamerbot application, navigate to ``Actions & Queues > Actions``, right-click the 'Actions' container and 
+click `Add`. Give it a name. In our example, we will name it `Death`. Optionally, you can assign it to a group to keep 
+it organized.
 
+![Streamerbot1.png](resources/Streamerbot1.png)
+![Streamerbot2.png](resources/Streamerbot2.png)
 
+2. Select the action you just made. The 'Sub-Actions' container will list the tasks this action will perform in the
+   order shown.
+   Here, right-click `Add > Core > Delay` and set it to `600` milliseconds and click 'Ok'. This sub-action simply lets
+   Streamerbot wait before performing the next sub-action. In our case, this is to time the animation nicely with
+   the in-game death.
+
+![Streamerbot3.png](resources/Streamerbot3.png)
+![Streamerbot4.png](resources/Streamerbot4.png)
+
+3. Now right-click `Add > OBS Studio > Sources > Set Source Visibility State`. Select your OBS scene where you added
+   the media source and then select the source itself, which we named `You died`. Set the state to `Visible` and click '
+   Ok'.
+
+![Streamerbot5.png](resources/Streamerbot5.png)
+
+4. Right-click your 'Delay for 600ms' sub-action and select `Duplicate Sub-Action`, which adds another identical
+   sub-action at the end of the sequence. Double-click this copy to edit it. Set the delay to `8500` milliseconds and
+   click 'Ok'. This second delay is to let the animation play before proceeding. Similarly, duplicate your 'OBS Studio
+   Source Visibility State' sub-action and change the state to `Hidden`. You now have created an action which. The
+   result should look like in the image below.
+
+![Streamerbot6.png](resources/Streamerbot6.png)
+
+<sub>Don't worry if your scene and source are named differently.</sub>
+
+You now have created a Streamerbot action that: 
+- waits 600ms
+- makes a media source visible, which automatically plays the media file
+- waits another 8500ms to let it play
+- hides the media source again
+
+#### Setup in RuneLite
+
+1. Ensure Dink and the Streamerbot plugin are installed from the Plugin Hub and enabled.
+
+2. In your RuneLite settings go to `Streamerbot > Dink notifications > Enable death` and checkmark this setting. This 
+will automatically enable the corresponding notifier in Dink. below, copy the name of the action you created, which in our example was `Death`. 
+By default, Dink's death notifier will ignore safe deaths. If you do want the alert to play on safe death, go to 
+`Dink > Death > Ignore Safe Deaths` and uncheck this setting. In this section, you can customize exactly when the 
+death notifier fires. Some of these settings, such as `Send Image` and `Embed Kept Items` can be ignored, as they're 
+only relevant for sending notifications to Discord webhooks with Dink.
+
+Your alerts should now be ready to use! Your result should look something like this. 
+
+<video src="resources/Example.mp4" width="320" height="240" controls></video>
 
 </details>
+
+
 
 ### Metadata
 
