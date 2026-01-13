@@ -173,9 +173,8 @@ only relevant for sending notifications to Discord webhooks with Dink.
 
 Your alerts should now be ready to use! Your result should look something like this. 
 
-<video src="resources/Example.mp4" width="320" height="240" controls></video>
+[![Example](https://img.youtube.com/vi/0YfdTtCFP4Q/0.jpg)](https://www.youtube.com/watch?v=0YfdTtCFP4Q)
 
-</details>
 
 
 
