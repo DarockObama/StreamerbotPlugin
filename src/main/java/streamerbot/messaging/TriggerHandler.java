@@ -14,7 +14,7 @@ public class TriggerHandler {
     StreamerbotConfig config;
 
     @Inject
-    private OkHttpClient okHttpClient = new OkHttpClient();
+    private OkHttpClient okHttpClient;
 
     public void sendJson(String payload) {
         if(StringUtils.isBlank(config.streamerbotAddress())) {
