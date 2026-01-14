@@ -19,8 +19,8 @@ automated tasks for your streams. You can think of use cases such as:
 - Playing text-to-speech Audio with [Speaker.bot](https://speaker.bot/)
 - Running custom C# code to perform more advanced tasks
 
-In a nutshell, you can enhance your streams with endless room for creativity. If you're new to Streamerbot, it is
-recommended to know the basic principles of this
+In a nutshell, Streamerbot can do whatever you want it to do automatically, whenever you want. 
+If you're new to Streamerbot, it is recommended to know the basic principles of this
 application. [Click here](https://docs.streamer.bot/get-started/introduction) to learn about what it does and how it
 works.
 
@@ -93,7 +93,7 @@ indicator in the top-right corner of the Streamerbot window will light
 up green 🟢 once this is done successfully. Additionally, the HTTP server in your Streamerbot must be enabled.
 Refer to step 3. of [Setting up Streamerbot](#setting-up-streamerbot)
 
-#### In OBS Studio setup
+#### In OBS Studio
 
 1. Go to the OBS scene where you keep your other alert sources. Inside the list of sources right-click
    `Add Source > Media Srouce`. Give this a name. In our example we name it `You died`. Navigate to the file
@@ -120,7 +120,7 @@ It is best practice to organize your alert overlays by scene nesting, but that's
 
 ![OBS6](resources/OBS6.png)
 
-#### Streamerbot setup
+#### In Streamerbot
 
 1. In your Streamerbot application, navigate to ``Actions & Queues > Actions``, right-click the 'Actions' container and 
 click `Add`. Give it a name. In our example, we will name it `Death`. Optionally, you can assign it to a group to keep 
@@ -160,16 +160,17 @@ You now have created a Streamerbot action that:
 - waits another 8500ms to let it play
 - hides the media source again
 
-#### Setup in RuneLite
+#### In RuneLite
 
 1. Ensure Dink and the Streamerbot plugin are installed from the Plugin Hub and enabled.
 
-2. In your RuneLite settings go to `Streamerbot > Dink notifications > Enable death` and checkmark this setting. This 
-will automatically enable the corresponding notifier in Dink. below, copy the name of the action you created, which in our example was `Death`. 
-By default, Dink's death notifier will ignore safe deaths. If you do want the alert to play on safe death, go to 
-`Dink > Death > Ignore Safe Deaths` and uncheck this setting. In this section, you can customize exactly when the 
-death notifier fires. Some of these settings, such as `Send Image` and `Embed Kept Items` can be ignored, as they're 
-only relevant for sending notifications to Discord webhooks with Dink.
+2. In your RuneLite settings go to `Streamerbot > Dink notifications > Enable death` and checkmark this setting. This
+   will automatically enable the corresponding notifier in Dink. below, copy the name of the action you created, which
+   in our example was `Death`.
+   By default, Dink's death notifier will ignore safe deaths. If you do want the alert to play on safe death, go to
+   `Dink > Death > Ignore Safe Deaths` and uncheck this setting. In this section, you can customize exactly when the
+   death notifier fires. Some of these settings, such as `Send Image` and `Embed Kept Items` can be ignored, as they're
+   only relevant for sending notifications to Discord webhooks with Dink.
 
 Your death alert should now be ready to use! The result should look like this in OBS Studio.
 
@@ -177,25 +178,73 @@ Your death alert should now be ready to use! The result should look like this in
 
 </details>
 
-### Data
+### Notification Data from Runelite
 
 When a notifier fires, data relevant to the in-game event is sent alongside the notification to Streamerbot. In the
-spirit of Streamerbot, we shall refer to the data as 'variables'. All notifiers will send the variables `notificationType`
-indicating the type of event, `playerName`, `accountType` and
-`plainText`, which is the message configured within Dink, besides their individual dataset.
+spirit of Streamerbot, we shall refer to the data as 'variables'. All notifiers will send the variables
+`notificationType` indicating the type of event, `playerName`, `accountType` and
+`plainText`, which is the message configured within Dink, besides their individual set of variables.
 For example, on player death the death notifier sends the integer `valueLost`, indicating how much wealth
 in gp the player lost. It also sends the boolean `isPvp`, which has the value `true` if another player killed the user
 and `false` otherwise, and the string `killerName`, indicating who or what npc killed you (when applicable),
 among other variables.
 
-On certain events, some variables cannot have a meaningful value. For example if your character dies without being 
-killed by a player or npc, `killerName` will simply have the value "N/A". Other nullable string variables will also 
-have this behavior. 
+On certain events, some variables cannot have a meaningful value. For example if your character dies without being
+killed by a player or npc, `killerName` will simply have the value `"N/A"`. Other nullable string variables will also
+have this behavior. For int and long variables the placeholder value will be `0`. For doubles, it 
+is `0.0`.
 
-For a full overview of the variables that's sent with each notifier, see
-Dink's [JSON examples](https://github.com/pajlads/DinkPlugin/blob/master/docs/json-examples.md). Of each notifier, its 
+For a full overview of the variables that are sent with each notifier, see
+Dink's [JSON examples](https://github.com/pajlads/DinkPlugin/blob/master/docs/json-examples.md). Of each notifier, its
 unique dataset is contained inside `"extra"`.
 
-With each notifier, you can use the included data get really creative! 
+#### Variables in Streamerbot
+
+After Streamerbot performs an action, you can look at the variables that came with the event that triggered it. 
+In Streamerbot, go to `Actions & Queues > Action History` and double-click the past action you want to inspect. This 
+shows a list of variables and their values that come with the event. After the Streamerbot plugin sends a notification 
+to Streamerbot, this is where you can see all the aforementioned notification data.
+
+#### Using variables
+
+You can use these variables to get really creative! Most sub-actions with configuration text fields can be fed values 
+of variables. To do this, wrap the variable name with `%`, as follows: `%variableName%`. For a complete guide on 
+variables in Streamerbot, [click here](https://docs.streamer.bot/guide/variables). 
+
+### Example notifier with variables
+
+If this all seems very technical because you're not a programmer, don't worry; it's easier than it looks. Assuming Dink, 
+the Streamerbot plugin and Streamerbot are set up, we will use the Death notifier again as we did in 
+[Example Notifier](#example-notifier). **Note**: For this specific example you must have your Twitch account connected 
+to Streamerbot. See the [Twitch Setup](https://docs.streamer.bot/get-started/setup#twitch-setup) you still need 
+do this. 
+
+1. If you haven't made the notifier from [Example Notifier](#example-notifier), follow step 1. of the
+[Streamerbot](#in-streamerbot) part. If you did, ignore this step.
+
+2. Select the action and right-click the sub-action container and go to `Add > Twitch > Chat > Send Message to Channel`. 
+Copy the following into the text field and click 'Ok'.
+
+```
+%playerName% just died to %killerName% and lost %valueLost% gp. Sit!
+```
+
+3. If you've already made the death alert from the first example, drag this sub-action to the top of the list. It 
+should look in the image below.
+
+![Streamerbot7.png](resources/Streamerbot7.png)
+
+4. Follow steps 1. and 2. of the [Runelite](#in-runelite) part if you haven't made the death alert.
+
+Whenever your character dies to an NPC or player, it will now be sent to your Twitch Chat by either your 
+Twitch broadcaster account or your bot account that you configured in Streamerbot.
+
+![OBS7.png](resources/OBS7.png)
 
 ## Credits and Attribution
+This project would not have been possible without [Dink](https://github.com/pajlads/DinkPlugin/tree/master) and the 
+help of its amazing developers. The current functionality of this plugin fully relies on outbound pluginMessage feature 
+from Dink.
+
+Furthermore, project uses code that's adapted from Dink.
+
