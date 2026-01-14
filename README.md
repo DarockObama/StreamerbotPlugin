@@ -1,11 +1,11 @@
 # Streamerbot Plugin
-Let your stream play the iconic 'YOU DIED' animation when your character dies, have your Twitch chatbot keep track of 
-your boss kill counts or set up something simple like a death count tracker overlay.
+Let your stream play the iconic "**YOU DIED**" animation when your character dies, have your Twitch chatbot track 
+your boss kill counts, or set up something simple like a death count tracker overlay.
 
-This plugin lets OldSchool RuneScape interact with your stream. It does this by
-letting [Streamerbot](https://streamer.bot/) perform actions
-through HTTP requests upon events happening in the game, using notifiers
-from [Dink](https://github.com/pajlads/DinkPlugin/tree/master).
+This plugin lets _Old School RuneScape_ interact with your stream. It does this by
+letting [**Streamerbot**](https://streamer.bot/) perform actions
+via HTTP requests upon events happening in the game, using notifiers
+from [**Dink**](https://github.com/pajlads/DinkPlugin/tree/master).
 
 ## What is Streamerbot?
 
@@ -16,12 +16,12 @@ automated tasks for your streams. You can think of applications such as
 - Sending messages to Twitch Chat with your own chatbot
 - Controlling OBS Studio to play your own alerts locally
 - Posting messages to Discord
-- Playing text-to-speech Audio with [Speaker.bot](https://speaker.bot/)
+- Playing text-to-speech Audio with [**Speaker.bot**](https://speaker.bot/)
 - Running custom C# code to perform more advanced tasks
 
 In a nutshell, Streamerbot can do whatever you want it to do automatically, whenever you want.
 If you're new to Streamerbot, I recommend learning about its basic building 
-blocks. [Click here](https://docs.streamer.bot/get-started/introduction) for an introduction to the fundamentals of Streamerbot.
+blocks. [**Click here**](https://docs.streamer.bot/get-started/introduction) for an introduction to the fundamentals of Streamerbot.
 
 ## Basic Setup
 
@@ -31,16 +31,16 @@ Dink Plugin to be running.
 ### Setting up Streamerbot
 
 1. Download and install the Streamerbot application, using
-   the [Installation Guide](https://docs.streamer.bot/get-started/installation).
+   the [**Installation Guide**](https://docs.streamer.bot/get-started/installation).
 2. Connect your Streamerbot to your broadcasting software and streaming platform(s) of choice, using
-   the [Initial Setup Guide](https://docs.streamer.bot/get-started/setup).
+   the [**Initial Setup Guide**](https://docs.streamer.bot/get-started/setup).
 3. Set up your Streamerbot to receive HTTP
-   requests: [HTTP Server Configuration guide](https://docs.streamer.bot/api/http/guide/configuration). You can leave
+   requests: [**HTTP Server Configuration guide**](https://docs.streamer.bot/api/http/guide/configuration). You can leave
    the  **Address** as the default `127.0.0.1`.
    and the **Port** as the default `7474` for our use case, unless you have to use a different address for some reason.
    Enable **Auto Start** for future use and simply press `⏻ Start Server`. Your Streamerbot server is now running.
 4. Build an action that you want Streamerbot to execute upon an in-game event. The name you will give to this action
-   will be important for later. For a nice introduction to actions, [click here](https://docs.streamer.bot/guide/actions).
+   will be important for later. For a nice introduction to actions, [**click here]**(https://docs.streamer.bot/guide/actions).
 
 <sub> Note: Normally, actions in Streamerbot require a trigger to 
 execute them on given events. In our case, this is not needed, since the HTTP server we just set up simply executes 
@@ -72,7 +72,7 @@ Dink will send a warning in game chat when this is the case. </sub>
 Your Streamerbot action triggered on in-game events is now complete. Whenever the configured event takes place in
 your game instance, your Streamerbot action will be executed. This basic setup serves to give you a broad idea of
 how this plugin should be used with Streamerbot and your streaming ecosystem. If you'd like to see a more
-concrete example, see the [Example notifier](#example-notifier), where you can build your first fully functioning game
+concrete example, see the [**Example notifier**](#example-notifier), where you can build your first fully functioning game
 event-based alert.
 
 ### Example notifier
@@ -85,10 +85,10 @@ In this example we will build a notifier that plays the iconic 'YOU DIED' animat
 in-game character dies. You can download `YOU DIED.mov` from the `resources` folder in this plugin's repository. 
 
 **Note:** For this tutorial you must have your Streamerbot application connected to your OBS Studio. If you haven't
-done this already, please follow these [steps](https://docs.streamer.bot/get-started/setup#obs-studio). A status
+done this already, please follow this [**guide**](https://docs.streamer.bot/get-started/setup#obs-studio). A status
 indicator in the top-right corner of the Streamerbot window will light
 up green 🟢 once this is done successfully. Additionally, the HTTP server in your Streamerbot must be enabled.
-Refer to step 3. of [Setting up Streamerbot](#setting-up-streamerbot)
+Refer to step 3. of [**Setting up Streamerbot**](#setting-up-streamerbot)
 
 #### In OBS Studio
 
@@ -175,7 +175,7 @@ Your death alert should now be ready to use! The result should look like this in
 
 </details>
 
-### Notification Data from Runelite
+### Notification Data from RuneLite
 
 When a notifier fires, data relevant to the in-game event is sent alongside the notification to Streamerbot. In the
 spirit of Streamerbot, we shall refer to the data as 'variables'. All notifiers will send the variables
@@ -192,7 +192,7 @@ have this behavior. For int and long variables the placeholder value will be `0`
 is `0.0`.
 
 For a full overview of the variables that are sent with each notifier, see
-Dink's [JSON examples](https://github.com/pajlads/DinkPlugin/blob/master/docs/json-examples.md). Of each notifier, its
+Dink's [**JSON examples**](https://github.com/pajlads/DinkPlugin/blob/master/docs/json-examples.md). Of each notifier, its
 unique dataset is contained inside `"extra"`.
 
 #### Variables in Streamerbot
@@ -206,7 +206,7 @@ to Streamerbot, this is where you can see all the aforementioned notification da
 
 You can use these variables to get really creative! Most sub-actions with configuration text fields can be fed values 
 of variables. To do this, wrap the variable name with `%`, as follows: `%variableName%`. For a complete guide on 
-variables in Streamerbot, [click here](https://docs.streamer.bot/guide/variables). 
+variables in Streamerbot, [**click here**](https://docs.streamer.bot/guide/variables). 
 
 ### Example notifier with variables
 
@@ -216,12 +216,12 @@ variables in Streamerbot, [click here](https://docs.streamer.bot/guide/variables
 
 If this all seems very technical because you're not a programmer, don't worry; it's easier than it looks. Assuming Dink, 
 the Streamerbot plugin and Streamerbot are set up, we will use the Death notifier again as we did in 
-[Example Notifier](#example-notifier). **Note**: For this specific example you must have your Twitch account connected 
-to Streamerbot. See the [Twitch Setup](https://docs.streamer.bot/get-started/setup#twitch-setup) you still need 
+[**Example Notifier**](#example-notifier). **Note**: For this specific example you must have your Twitch account connected 
+to Streamerbot. See the [**Twitch Setup**](https://docs.streamer.bot/get-started/setup#twitch-setup) you still need 
 do this. 
 
-1. If you haven't made the notifier from [Example Notifier](#example-notifier), follow step 1. of the
-[Streamerbot](#in-streamerbot) part. If you did, ignore this step.
+1. If you haven't made the notifier from [**Example Notifier**](#example-notifier), follow step 1. of the
+[**Streamerbot**](#in-streamerbot) part. If you did, ignore this step.
 
 2. Select the action that you've made, right-click the sub-action container and go to
    `Add > Twitch > Chat > Send Message to Channel`.
@@ -236,7 +236,7 @@ case, it should look like in the image below.
 
 ![Streamerbot7.png](resources/Streamerbot7.png)
 
-4. Follow steps 1. and 2. of the [Runelite](#in-runelite) part if you haven't made the death alert.
+4. Follow steps 1. and 2. of the [**RuneLite**](#in-runelite) part if you haven't made the death alert.
 
 Whenever your character dies to an NPC or player, it will now be sent to your Twitch Chat by either your 
 Twitch broadcaster account or your bot account that you configured in Streamerbot.
@@ -246,6 +246,6 @@ Twitch broadcaster account or your bot account that you configured in Streamerbo
 </details>
 
 ## Credits and Attribution
-This project would not have been possible without [Dink](https://github.com/pajlads/DinkPlugin/tree/master) and the
+This project would not have been possible without [**Dink**](https://github.com/pajlads/DinkPlugin/tree/master) and the
 help of its amazing developers. The current functionality of this plugin fully relies on the outbound `PluginMessage`
 feature from Dink. Furthermore, this project uses code adapted from Dink Plugin.
