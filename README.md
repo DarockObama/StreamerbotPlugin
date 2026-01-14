@@ -213,6 +213,10 @@ variables in Streamerbot, [click here](https://docs.streamer.bot/guide/variables
 
 ### Example notifier with variables
 
+<details>
+
+<summary>Click here to open the tutorial</summary>
+
 If this all seems very technical because you're not a programmer, don't worry; it's easier than it looks. Assuming Dink, 
 the Streamerbot plugin and Streamerbot are set up, we will use the Death notifier again as we did in 
 [Example Notifier](#example-notifier). **Note**: For this specific example you must have your Twitch account connected 
@@ -241,8 +245,10 @@ Twitch broadcaster account or your bot account that you configured in Streamerbo
 
 ![OBS7.png](resources/OBS7.png)
 
+</details>
+
 ## Credits and Attribution
-This project would not have been possible without [Dink](https://github.com/pajlads/DinkPlugin/tree/master) and the 
-help of its amazing developers. The current functionality of this plugin fully relies on outbound pluginMessage feature 
-from Dink. Furthermore, this project uses code that's adapted from Dink.
+This project would not have been possible without [Dink](https://github.com/pajlads/DinkPlugin/tree/master) and the
+help of its amazing developers. The current functionality of this plugin fully relies on the outbound `PluginMessage`
+feature from Dink. Furthermore, this project uses code that's adapted from Dink.
 
