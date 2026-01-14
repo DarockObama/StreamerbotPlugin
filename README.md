@@ -244,7 +244,5 @@ Twitch broadcaster account or your bot account that you configured in Streamerbo
 ## Credits and Attribution
 This project would not have been possible without [Dink](https://github.com/pajlads/DinkPlugin/tree/master) and the 
 help of its amazing developers. The current functionality of this plugin fully relies on outbound pluginMessage feature 
-from Dink.
-
-Furthermore, project uses code that's adapted from Dink.
+from Dink. Furthermore, this project uses code that's adapted from Dink.
 
