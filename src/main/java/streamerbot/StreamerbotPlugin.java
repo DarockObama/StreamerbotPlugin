@@ -101,7 +101,6 @@ public class StreamerbotPlugin extends Plugin {
         queueMessage(formatted);
     }
 
-
     @Provides
     StreamerbotConfig provideConfig(ConfigManager configManager) {
         return configManager.getConfig(StreamerbotConfig.class);

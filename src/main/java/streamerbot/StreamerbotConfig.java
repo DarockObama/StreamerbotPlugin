@@ -5,6 +5,7 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 
+@SuppressWarnings("CyclomaticComplexityInspection")
 @ConfigGroup(SettingsManager.CONFIG_GROUP)
 public interface StreamerbotConfig extends Config {
     @ConfigItem(
