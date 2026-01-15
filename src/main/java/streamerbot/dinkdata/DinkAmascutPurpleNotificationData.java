@@ -10,7 +10,7 @@ import java.util.Collection;
 @Data
 public class DinkAmascutPurpleNotificationData extends DinkNotificationData {
     Collection<String> party;
-    int reWardPoints;
+    int rewardPoints;
     int raidLevel;
     double probability;
 

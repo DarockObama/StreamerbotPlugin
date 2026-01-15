@@ -19,7 +19,7 @@ public class TriggerHandler {
 
     public void sendJson(String payload) {
         if (StringUtils.isBlank(config.streamerbotAddress())) {
-            log.error("No address provided");
+            log.debug("No address provided");
             return; // important: don't continue
         }
 
@@ -36,16 +36,16 @@ public class TriggerHandler {
         okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(@Nonnull okhttp3.Call call,@Nonnull  java.io.IOException e) {
-                log.error("Error during POST request", e);
+                log.debug("Error during POST request", e);
             }
 
             @Override
             public void onResponse(@Nonnull okhttp3.Call call, @Nonnull okhttp3.Response response) {
                 try (okhttp3.Response res = response) {
                     if (!res.isSuccessful()) {
-                        log.error("POST request failed. Response Code: {}", res.code());
+                        log.debug("POST request failed. Response Code: {}", res.code());
                     } else {
-                        log.info("POST request succeeded!");
+                        log.debug("POST request succeeded!");
                     }
                 }
             }
