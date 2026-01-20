@@ -217,8 +217,7 @@ variables in Streamerbot, [**click here**](https://docs.streamer.bot/guide/varia
 If this all seems very technical because you're not a programmer, don't worry; it's easier than it looks. Assuming Dink, 
 the Streamerbot plugin and Streamerbot are set up, we will use the Death notifier again as we did in 
 [**Example Notifier**](#example-notifier). **Note**: For this specific example you must have your Twitch account connected 
-to Streamerbot. See the [**Twitch Setup**](https://docs.streamer.bot/get-started/setup#twitch-setup) you still need 
-do this. 
+to Streamerbot. See the [**Twitch Setup**](https://docs.streamer.bot/get-started/setup#twitch-setup) if you still need to do this. 
 
 1. If you haven't made the notifier from [**Example Notifier**](#example-notifier), follow step 1. of the
 [**Streamerbot**](#in-streamerbot) part. If you did, ignore this step.
