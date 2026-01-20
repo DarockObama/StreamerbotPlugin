@@ -101,9 +101,9 @@ Refer to step 3. of [**Setting up Streamerbot**](#setting-up-streamerbot)
 It is best practice to organize your alert overlays by scene nesting, but that's outside the scope of this tutorial. 
 </sub>
 
-![OBS1](resources/OBS1.png)
-![OBS2](resources/OBS2.png)
-![OBS3](resources/OBS3.png)
+![OBS_Image1.png](resources/OBS_Image1.png)
+![OBS_Image2.png](resources/OBS_Image2.png)
+![OBS_Image3.png](resources/OBS_Image3.png)
 
 2. As for all alert overlays, make sure this media source is above your RuneLite source. If you want to be able to hear
    this alert, right-click the
@@ -111,11 +111,11 @@ It is best practice to organize your alert overlays by scene nesting, but that's
    Output'
    as the **Audio Monitoring** option. Once that's done, click the eye icon to hide it . You will see later why.
 
-![OBS4](resources/OBS4.png)
+![OBS_Image4.png](resources/OBS_Image4.png)
 
-![OBS5](resources/OBS5.png)
+![OBS_Image5.png](resources/OBS_Image5.png)
 
-![OBS6](resources/OBS6.png)
+![OBS_Image6.png](resources/OBS_Image6.png)
 
 #### In Streamerbot
 
@@ -123,8 +123,8 @@ It is best practice to organize your alert overlays by scene nesting, but that's
 click `Add`. Give it a name. In our example, we will name it `Death`. Optionally, you can assign it to a group to keep 
 it organized.
 
-![Streamerbot1.png](resources/Streamerbot1.png)
-![Streamerbot2.png](resources/Streamerbot2.png)
+![Streamerbot_Image1.png](resources/Streamerbot_Image1.png)
+![Streamerbot_Image2.png](resources/Streamerbot_Image2.png)
 
 2. Select the action you just made. The 'Sub-Actions' container will list the tasks this action will perform in the
    order shown.
@@ -132,14 +132,14 @@ it organized.
    Streamerbot wait before performing the next sub-action. In our case, this is to time the animation nicely with
    the in-game death.
 
-![Streamerbot3.png](resources/Streamerbot3.png)
-![Streamerbot4.png](resources/Streamerbot4.png)
+![Streamerbot_Image3.png](resources/Streamerbot_Image3.png)
+![Streamerbot_Image4.png](resources/Streamerbot_Image4.png)
 
 3. Now right-click `Add > OBS Studio > Sources > Set Source Visibility State`. Select your OBS scene where you added
    the media source and then select the source itself, which we named `You died`. Set the state to `Visible` and click '
    Ok'.
 
-![Streamerbot5.png](resources/Streamerbot5.png)
+![Streamerbot_Image5.png](resources/Streamerbot_Image5.png)
 
 4. Right-click your 'Delay for 600ms' sub-action and select `Duplicate Sub-Action`, which adds another identical
    sub-action at the end of the sequence. Double-click this copy to edit it. Set the delay to `8500` milliseconds and
@@ -147,7 +147,7 @@ it organized.
    Source Visibility State' sub-action and change the state to `Hidden`. You now have created an action which. The
    result should look like in the image below.
 
-![Streamerbot6.png](resources/Streamerbot6.png)
+![Streamerbot_Image6.png](resources/Streamerbot_Image6.png)
 
 <sub>Don't worry if your scene and source are named differently.</sub>
 
@@ -233,14 +233,14 @@ to Streamerbot. See the [**Twitch Setup**](https://docs.streamer.bot/get-started
 3. If you've already made the death alert from the first example, drag this sub-action to the top of the list. It this 
 case, it should look like in the image below. 
 
-![Streamerbot7.png](resources/Streamerbot7.png)
+![Streamerbot_Image7.png](resources/Streamerbot_Image7.png)
 
 4. Follow steps 1. and 2. of the [**RuneLite**](#in-runelite) part if you haven't made the death alert.
 
 Whenever your character dies to an NPC or player, it will now be sent to your Twitch Chat by either your 
 Twitch broadcaster account or your bot account that you configured in Streamerbot.
 
-![OBS7.png](resources/OBS7.png)
+![OBS_Image7.png](resources/OBS_Image7.png)
 
 </details>
 
