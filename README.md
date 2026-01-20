@@ -40,7 +40,7 @@ Dink Plugin to be running.
    and the **Port** as the default `7474` for our use case, unless you have to use a different address for some reason.
    Enable **Auto Start** for future use and simply press `⏻ Start Server`. Your Streamerbot server is now running.
 4. Build an action that you want Streamerbot to execute upon an in-game event. The name you will give to this action
-   will be important for later. For a nice introduction to actions, [**click here]**(https://docs.streamer.bot/guide/actions).
+   will be important for later. For a nice introduction to actions, [**click here**](https://docs.streamer.bot/guide/actions).
 
 <sub> Note: Normally, actions in Streamerbot require a trigger to 
 execute them on given events. In our case, this is not needed, since the HTTP server we just set up simply executes 
