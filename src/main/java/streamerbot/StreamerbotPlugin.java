@@ -24,7 +24,7 @@ import java.awt.*;
         name = "Streamerbot",
         description = "Lets in-game events trigger Streamerbot actions. <br/>"
                 + "Requires the use of the Streamerbot application and Dink plugin",
-        tags = {"streamer", "notifier", "trigger", "OBS", "Streamerbot", "Twitch"}
+        tags = {"streamer", "notifier", "trigger", "OBS", "Streamerbot", "Twitch", "Dink"}
 )
 
 public class StreamerbotPlugin extends Plugin {

@@ -1,5 +1,6 @@
 package streamerbot.dinkdata;
 
+import com.google.gson.Gson;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,7 +24,24 @@ public class DinkLoginNotificationData extends DinkNotificationData {
         super(DinkNotificationType.LOGIN);
     }
 
-    //@Data
+    @Override
+    public Map<String, Object> sanitized(Gson gson) {
+        Map<String, Object> map = super.sanitized(gson);
+
+        map.put("collectionLog", gson.toJson(collectionLog));
+        map.put("combatAchievementPoints", gson.toJson(combatAchievementPoints));
+        map.put("achievementDiary", gson.toJson(achievementDiary));
+        map.put("achievementDiaryTasks", gson.toJson(achievementDiaryTasks));
+        map.put("barbarianAssault", gson.toJson(barbarianAssault));
+        map.put("skills", gson.toJson(skills));
+        map.put("questCount", gson.toJson(questCount));
+        map.put("questPoints", gson.toJson(questPoints));
+        map.put("slayer", gson.toJson(slayer));
+
+        return map;
+    }
+
+    @Data
     public static class SkillData {
         long totalExperience;
         int totalLevel;

@@ -1,5 +1,6 @@
 # Streamerbot Plugin
-Let your stream play the iconic "**YOU DIED**" animation when your character dies, have your Twitch chatbot track 
+Let your stream play the iconic "**YOU DIED**" animation when your character dies 
+(see [**Example notifier**](#example-notifier)), have your Twitch chatbot track
 your boss kill counts, or set up something simple like a death count tracker overlay.
 
 This plugin lets _Old School RuneScape_ interact with your stream. It does this by

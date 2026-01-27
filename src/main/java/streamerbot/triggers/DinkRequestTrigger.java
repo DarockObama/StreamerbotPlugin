@@ -9,7 +9,6 @@ import streamerbot.messaging.DoActionRequest;
 import net.runelite.client.events.PluginMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-
 import javax.inject.Singleton;
 import java.util.Map;
 
@@ -19,11 +18,7 @@ public class DinkRequestTrigger extends BaseTrigger {
 
     private static final String DINK_KEY = "dinkplugin";
 
-    String actionName(DinkNotificationType type) {
-        return configManager.getConfiguration(CONFIG_GROUP, type.getActionKey(), String.class);
-    }
-
-    public void onPluginMessage(PluginMessage pluginMessage) {
+    public void onPluginMessage(PluginMessage pluginMessage)  {
         if (!pluginMessage.getNamespace().equals(DINK_KEY)) {
             return;
         }
@@ -43,9 +38,10 @@ public class DinkRequestTrigger extends BaseTrigger {
         }
 
         Map<String, Object> data = pluginMessage.getData();
-        DinkNotificationData input;
-        log.debug("Attempting to make request");
+
         Class<? extends DinkNotificationData> clazz = notificationType.getDataClass();
+        DinkNotificationData input;
+
         try {
             input = gson.fromJson(gson.toJsonTree(data), clazz);
         } catch (JsonSyntaxException e) {
@@ -53,7 +49,8 @@ public class DinkRequestTrigger extends BaseTrigger {
             return;
         }
 
-        DoActionRequest request = new DoActionRequest(actionName, input);
+        Map<String, Object> args = input.sanitized(gson);
+        DoActionRequest request = new DoActionRequest(actionName,  args);
         String json = gson.toJson(request);
         sendRequest(json);
     }

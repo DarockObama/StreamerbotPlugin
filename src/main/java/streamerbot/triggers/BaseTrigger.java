@@ -34,8 +34,6 @@ public abstract class BaseTrigger {
     @Inject
     private TriggerHandler triggerHandler;
 
-    protected static final String CONFIG_GROUP = "StreamerbotPlugin";
-
     protected void sendRequest(String json) {
         triggerHandler.sendJson(json);
     }

@@ -1,5 +1,6 @@
 package streamerbot.dinkdata;
 
+import com.google.gson.Gson;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import net.runelite.api.coords.WorldPoint;
@@ -21,5 +22,20 @@ public class DinkPlayerKillNotificationData extends DinkNotificationData {
 
     DinkPlayerKillNotificationData() {
         super(DinkNotificationType.PLAYER_KILL);
+    }
+
+    @Override
+    public Map<String, Object> sanitized(Gson gson) {
+        Map<String, Object> map = super.sanitized(gson);
+
+        map.put("victimName", victimName);
+        map.put("victimCombatLevel", victimCombatLevel);
+        map.put("victimEquipment", gson.toJson(victimEquipment));
+        map.put("world", world);
+        map.put("location", gson.toJson(location));
+        map.put("myHitpoints", myHitpoints);
+        map.put("myLastDamage", myLastDamage);
+
+        return map;
     }
 }

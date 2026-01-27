@@ -24,7 +24,7 @@ public class StringToIntAdapter extends TypeAdapter<Integer> {
         try {
             return Integer.parseInt(stringValue);
         } catch (NumberFormatException e) {
-            return 0; // or throw exception
+            return 0;
         }
     }
 }

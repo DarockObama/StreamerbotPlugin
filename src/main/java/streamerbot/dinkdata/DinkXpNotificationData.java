@@ -1,5 +1,6 @@
 package streamerbot.dinkdata;
 
+import com.google.gson.Gson;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,5 +16,16 @@ public class DinkXpNotificationData extends DinkNotificationData {
 
     public DinkXpNotificationData() {
         super(DinkNotificationType.XP_MILESTONE);
+    }
+
+    @Override
+    public Map<String, Object> sanitized(Gson gson) {
+        Map<String, Object> map = super.sanitized(gson);
+
+        map.put("xpData", gson.toJson(xpData));
+        map.put("milestoneAchieved", gson.toJson((milestoneAchieved)));
+        map.put("interval",interval);
+
+        return map;
     }
 }

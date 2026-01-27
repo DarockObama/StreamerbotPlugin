@@ -1,7 +1,10 @@
 package streamerbot.dinkdata;
 
+import com.google.gson.Gson;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.Map;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -17,5 +20,20 @@ public class DinkPetNotificationData extends DinkNotificationData {
 
     public DinkPetNotificationData() {
         super(DinkNotificationType.PET);
+    }
+
+    @Override
+    public Map<String, Object> sanitized(Gson gson) {
+        Map<String, Object> map = super.sanitized(gson);
+
+        map.put("petName", petName);
+        map.put("milestone", milestone);
+        map.put("duplicate", duplicate);
+        map.put("previouslyOwned", previouslyOwned);
+        map.put("rarity", rarity);
+        map.put("estimatedActions", estimatedActions);
+        map.put("luck", luck);
+
+        return map;
     }
 }
