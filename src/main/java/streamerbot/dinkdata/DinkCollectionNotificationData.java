@@ -9,7 +9,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DinkCollectionNotificationData extends DinkNotificationData {
-    String itemName = "N/A";
+    String itemName;
     int itemId = 0;
     long price = 0;
     int completedEntries = 0;

@@ -10,8 +10,8 @@ import java.util.Map;
 @Data
 public class DinkChatNotificationData extends DinkNotificationData {
     String type;
-    String source;
-    String clanTitle;
+    String source = "N/A";
+    String clanTitle = "N/A";
     String message;
 
     public DinkChatNotificationData() {

@@ -16,7 +16,7 @@ public class DinkBossNotificationData extends DinkNotificationData {
     String gameMessage;
     String time;
     Boolean isPersonalBest;
-    String personalBest;
+    String personalBest = "N/A";
     Collection<String> party = Collections.emptySet();
 
     public DinkBossNotificationData() {

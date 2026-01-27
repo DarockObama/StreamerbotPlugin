@@ -12,7 +12,7 @@ public class DinkNotificationData extends NotificationData {
     DinkNotificationType notificationType;
     String playerName;
     String accountType;
-    String plainText;
+    String plainText = "N/A";
 
     public DinkNotificationData() {
     }

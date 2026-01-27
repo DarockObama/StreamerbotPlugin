@@ -4,13 +4,14 @@ import com.google.gson.Gson;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Collections;
 import java.util.Map;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DinkExternalNotificationData extends DinkNotificationData {
     String sourcePlugin;
-    Map<String, Object> metadata;
+    Map<String, Object> metadata = Collections.emptyMap();
 
     public DinkExternalNotificationData() {
         super(DinkNotificationType.EXTERNAL_PLUGIN);

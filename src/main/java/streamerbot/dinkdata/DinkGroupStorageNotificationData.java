@@ -14,7 +14,6 @@ public class DinkGroupStorageNotificationData extends DinkNotificationData {
     Collection<Item> withdrawals;
     long netValue;
     String groupName;
-    boolean includePrice;
 
     public DinkGroupStorageNotificationData() {
         super(DinkNotificationType.GROUP_STORAGE);
@@ -28,7 +27,6 @@ public class DinkGroupStorageNotificationData extends DinkNotificationData {
         map.put("withdrawals", gson.toJson(withdrawals));
         map.put("netValue", netValue);
         map.put("groupName", groupName);
-        map.put("includePrice", includePrice);
 
         return map;
     }
