@@ -8,6 +8,9 @@ letting [**Streamerbot**](https://streamer.bot/) perform actions
 via HTTP requests upon events happening in the game, using notifiers
 from [**Dink**](https://github.com/pajlads/DinkPlugin/tree/master).
 
+If there's anything that doesn't seem to be working right or if you have any suggestions for additional notifiers,
+feel free to let me know on the [issue tracker](https://github.com/DarockObama/StreamerbotPlugin/issues).
+
 ## What is Streamerbot?
 
 Streamerbot is a versatile, locally run and open-source tool used for streaming. It connects various streaming
@@ -244,6 +247,10 @@ Twitch broadcaster account or your bot account that you configured in Streamerbo
 ![OBS_Image7.png](resources/OBS_Image7.png)
 
 </details>
+
+## Feedback
+
+
 
 ## Credits and Attribution
 This project would not have been possible without [**Dink**](https://github.com/pajlads/DinkPlugin/tree/master) and the
