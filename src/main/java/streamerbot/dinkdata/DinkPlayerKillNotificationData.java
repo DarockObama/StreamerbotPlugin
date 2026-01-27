@@ -16,7 +16,7 @@ public class DinkPlayerKillNotificationData extends DinkNotificationData {
     int victimCombatLevel;
     Map<KitType, Item> victimEquipment;
     int world = 0;
-    WorldPoint location;
+    WorldPoint location = new WorldPoint(-1, -1, -1);
     int myHitpoints;
     int myLastDamage;
 
@@ -32,7 +32,12 @@ public class DinkPlayerKillNotificationData extends DinkNotificationData {
         map.put("victimCombatLevel", victimCombatLevel);
         map.put("victimEquipment", gson.toJson(victimEquipment));
         map.put("world", world);
-        map.put("location", gson.toJson(location));
+        if(location.equals(new WorldPoint(-1, -1, -1))){
+            map.put("location", "N/A");
+        } else {
+            map.put("location", gson.toJson(location));
+        }
+
         map.put("myHitpoints", myHitpoints);
         map.put("myLastDamage", myLastDamage);
 

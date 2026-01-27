@@ -3,8 +3,8 @@ package streamerbot.dinkdata;
 import com.google.gson.Gson;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 @EqualsAndHashCode(callSuper = true)
@@ -19,6 +19,7 @@ public class DinkLoginNotificationData extends DinkNotificationData {
     Progress questCount = new Progress();
     Progress questPoints = new Progress();
     SlayerData slayer = new SlayerData();
+    List<Pet> pets = Collections.emptyList();
 
     DinkLoginNotificationData() {
         super(DinkNotificationType.LOGIN);
@@ -37,6 +38,7 @@ public class DinkLoginNotificationData extends DinkNotificationData {
         map.put("questCount", gson.toJson(questCount));
         map.put("questPoints", gson.toJson(questPoints));
         map.put("slayer", gson.toJson(slayer));
+        map.put("pets", gson.toJson(pets));
 
         return map;
     }

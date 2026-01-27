@@ -11,12 +11,12 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DinkLootNotificationData extends DinkNotificationData {
-    Collection<Loot> items;
+    Collection<AnnotatedItem> items;
     String source;
-    Collection<String> party = Collections.emptySet();
     String category;
     int killCount = 0;
     Double rarestProbability = 0.0;
+    Collection<String> party = Collections.emptySet();
     int npcId = 0;
 
     public DinkLootNotificationData() {
@@ -29,10 +29,10 @@ public class DinkLootNotificationData extends DinkNotificationData {
 
         map.put("items", gson.toJson(items));
         map.put("source", source);
-        map.put("party", gson.toJson(party));
         map.put("category", category);
         map.put("killCount", killCount);
         map.put("rarestProbability", rarestProbability);
+        map.put("party", gson.toJson(party));
         map.put("npcId", npcId);
 
         return map;

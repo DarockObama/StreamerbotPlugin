@@ -3,13 +3,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.EnumSet;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class Loot extends Item {
+public class AnnotatedItem extends Item {
     EnumSet<LootCriteria> criteria;
     Double rarity;
 
-    public Loot() {
+    public AnnotatedItem() {
         this.criteria = EnumSet.noneOf(LootCriteria.class);
         this.rarity = 0.0;
     }

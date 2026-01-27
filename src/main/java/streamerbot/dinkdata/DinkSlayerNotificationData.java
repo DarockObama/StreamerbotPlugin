@@ -10,8 +10,8 @@ import java.util.Map;
 @Data
 public class DinkSlayerNotificationData extends DinkNotificationData {
     String slayerTask;
-    int slayerCompleted = 0;
-    int slayerPoints = 0;
+    int slayerCompleted;
+    int slayerPoints;
     int killCount = 0;
     String monster = "N/A";
 
