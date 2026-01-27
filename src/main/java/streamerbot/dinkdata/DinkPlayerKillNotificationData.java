@@ -32,12 +32,7 @@ public class DinkPlayerKillNotificationData extends DinkNotificationData {
         map.put("victimCombatLevel", victimCombatLevel);
         map.put("victimEquipment", gson.toJson(victimEquipment));
         map.put("world", world);
-        if(location.equals(new WorldPoint(-1, -1, -1))){
-            map.put("location", "N/A");
-        } else {
-            map.put("location", gson.toJson(location));
-        }
-
+        map.put("location", gson.toJson(location));
         map.put("myHitpoints", myHitpoints);
         map.put("myLastDamage", myLastDamage);
 
