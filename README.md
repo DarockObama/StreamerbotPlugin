@@ -13,7 +13,7 @@ feel free to let me know on the [issue tracker](https://github.com/DarockObama/S
 
 ## What is Streamerbot?
 
-Streamerbot is a versatile, locally run and open-source tool used for streaming. It connects various streaming
+Streamerbot is a versatile, locally run and free application used for streaming. It connects various streaming
 platforms such as Twitch, broadcasting software like OBS, among many other integrations to perform
 automated tasks for your streams. You can think of applications such as
 
